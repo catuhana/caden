@@ -92,55 +92,46 @@
                         type = "luks";
 
                         settings = {
-                          allowDiscards = true;
                           bypassWorkqueues = true;
                           crypttabExtraOpts = [ "tpm2-device=auto" ];
                         };
 
                         content = {
-                          type = "lvm_pv";
-                          vg = "system";
-                        };
-                      };
-                    };
-                  };
-                };
-              };
-            };
+                          type = "btrfs";
+                          extraArgs = [ "-f" ];
 
-            lvm_vg = {
-              system = {
-                type = "lvm_vg";
+                          subvolumes = {
+                            "@" = {
+                              mountpoint = "/";
+                              mountOptions = [
+                                "compress=zstd"
+                                "noatime"
+                              ];
+                            };
 
-                lvs = {
-                  swap = {
-                    size = "20G";
-                    content = {
-                      type = "swap";
-                      resumeDevice = true;
-                    };
-                  };
+                            "@nix" = {
+                              mountpoint = "/nix";
+                              mountOptions = [
+                                "compress=zstd"
+                                "noatime"
+                              ];
+                            };
 
-                  root = {
-                    size = "100%";
-                    content = {
-                      type = "btrfs";
-                      extraArgs = [ "-f" ];
+                            "@home" = {
+                              mountpoint = "/home";
+                              mountOptions = [
+                                "compress=zstd"
+                                "noatime"
+                              ];
+                            };
 
-                      subvolumes = {
-                        "@" = {
-                          mountpoint = "/";
-                          mountOptions = [
-                            "compress=zstd"
-                            "noatime"
-                          ];
-                        };
-                        "@home" = {
-                          mountpoint = "/home";
-                          mountOptions = [
-                            "compress=zstd"
-                            "noatime"
-                          ];
+                            "@swap" = {
+                              mountpoint = "/swap";
+                              swap = {
+                                swapfile.size = "16G";
+                              };
+                            };
+                          };
                         };
                       };
                     };
