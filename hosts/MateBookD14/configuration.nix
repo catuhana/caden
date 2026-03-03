@@ -27,7 +27,6 @@
     desktop.gnome.enable = true;
 
     programs.nix-ld.enable = true;
-    services.userborn.enable = true;
   };
 
   networking.hostName = hostName;

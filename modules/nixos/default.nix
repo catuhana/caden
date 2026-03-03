@@ -17,6 +17,5 @@
 
     ./services/home-manager.nix
     ./services/scx.nix
-    ./services/userborn.nix
   ];
 }
