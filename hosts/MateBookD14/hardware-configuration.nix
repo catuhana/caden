@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  # TODO: This shouldn't be here?
   services.fwupd.enable = true;
 
   boot.kernelParams = [

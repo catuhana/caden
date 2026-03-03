@@ -39,7 +39,6 @@ in
     captiveBrowser.interface = mkOption {
       type = types.nullOr types.str;
       default = null;
-      description = "Wireless interface for captive-browser. Set to null to disable.";
     };
 
     resolved = {

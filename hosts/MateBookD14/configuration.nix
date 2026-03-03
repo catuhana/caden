@@ -21,10 +21,9 @@
         apparmor.enable = true;
         tpm2.enable = true;
       };
-
-      nix.gc.enable = true;
     };
 
+    desktop.enable = true;
     desktop.gnome.enable = true;
 
     programs.nix-ld.enable = true;

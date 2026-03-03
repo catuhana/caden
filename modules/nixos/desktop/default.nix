@@ -8,10 +8,9 @@ let
     mkEnableOption
     ;
 
-  kind = config.tuhana.system.kind;
   cfg = config.tuhana.desktop;
 
-  anyDEEnabled = cfg.gnome.enable;
+  anyDesktopEnabled = cfg.gnome.enable;
 in
 {
   imports = [
@@ -21,15 +20,13 @@ in
   ];
 
   options.tuhana.desktop = {
-    enable = mkEnableOption "desktop environment" // {
-      default = kind == "laptop" || kind == "desktop";
-    };
+    enable = mkEnableOption "desktop environment";
   };
 
   config = {
     assertions = [
       {
-        assertion = cfg.enable -> anyDEEnabled;
+        assertion = cfg.enable -> anyDesktopEnabled;
         message = "tuhana.desktop.enable is true but no desktop environment is enabled.";
       }
     ];

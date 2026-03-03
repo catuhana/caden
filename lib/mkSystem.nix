@@ -14,6 +14,8 @@ inputs.nixpkgs.lib.nixosSystem {
     { nixpkgs.hostPlatform = system; }
   ]
   ++ [
+    # TODO: Modules should probably not be specified
+    # here.
     inputs.home-manager.nixosModules.home-manager
     inputs.disko.nixosModules.default
     inputs.lanzaboote.nixosModules.lanzaboote

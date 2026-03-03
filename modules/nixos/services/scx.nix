@@ -2,6 +2,7 @@
 let
   inherit (lib)
     mkIf
+    mkDefault
     mkEnableOption
     ;
 
@@ -11,14 +12,11 @@ in
 {
   options.tuhana.services.scx = {
     enable = mkEnableOption "sched_ext" // {
-      default = kind == "laptop" || kind == "desktop";
+      default = kind != "server";
     };
   };
 
   config = mkIf cfg.enable {
-    services.scx = {
-      enable = true;
-      scheduler = "scx_bpfland";
-    };
+    services.scx.enable = true;
   };
 }

@@ -25,6 +25,7 @@ in
 
     secureBoot.enable = mkEnableOption "secure boot";
     silentBoot.enable = mkEnableOption "silent boot";
+    # TODO: This maybe should have theme option and such.
     plymouth.enable = mkEnableOption "Plymouth";
   };
 
