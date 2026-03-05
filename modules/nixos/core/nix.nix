@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -22,6 +23,8 @@ in
     nixpkgs.config.allowUnfree = true;
 
     nix = {
+      package = pkgs.lixPackageSets.stable.lix;
+
       settings = {
         experimental-features = [
           "nix-command"
