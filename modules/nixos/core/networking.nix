@@ -75,7 +75,7 @@ in
 
           DNS = mkIf cfg.useCustomDNS DNS.dot;
           DNSOverTLS = "opportunistic";
-          
+
           MulticastDNS = cfg.resolved.mDNS;
           LLMNR = false;
         };
