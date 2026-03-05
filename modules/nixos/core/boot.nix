@@ -48,7 +48,11 @@ in
           systemd.enable = true;
         };
 
-        tmp.cleanOnBoot = true;
+        tmp = {
+          useTmpfs = true;
+          cleanOnBoot = true;
+          tmpfsHugeMemoryPages = "within_size";
+        };
       };
     }
 
