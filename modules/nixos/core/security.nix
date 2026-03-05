@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -25,7 +26,10 @@ in
 
   config = mkMerge [
     (mkIf cfg.apparmor.enable {
-      security.apparmor.enable = true;
+      security.apparmor = {
+        enable = true;
+        packages = [ pkgs.apparmor-profiles ];
+      };
     })
 
     (mkIf cfg.useSudoRs {
