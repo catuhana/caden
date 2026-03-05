@@ -74,8 +74,7 @@ in
           Domains = [ "~." ];
 
           DNS = mkIf cfg.useCustomDNS DNS.dot;
-          DNSOverTLS = true;
-          DNSSEC = true;
+          DNSOverTLS = "opportunistic";
           
           MulticastDNS = cfg.resolved.mDNS;
           LLMNR = false;
