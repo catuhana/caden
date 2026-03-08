@@ -22,7 +22,10 @@ in
 
     tuhana = {
       programs.vscode.enable = kind != "server";
-      desktop.gnome.wallpaper = ../resources/wallpapers/tomb-raider.png;
+      desktop.gnome.settings = {
+        wallpaper = ../resources/wallpapers/tomb-raider.png;
+        accentColour = "purple";
+      };
     };
 
     home.stateVersion = "26.05";

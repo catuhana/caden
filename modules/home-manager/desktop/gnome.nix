@@ -24,15 +24,34 @@ in
       default = hostGnomeEnabled;
     };
 
-    wallpaper = mkOption {
-      type = types.nullOr (
-        types.oneOf [
-          types.path
-          types.package
-          types.url
-        ]
-      );
-      default = null;
+    settings = {
+      wallpaper = mkOption {
+        type = types.nullOr (
+          types.oneOf [
+            types.path
+            types.package
+            types.url
+          ]
+        );
+        default = null;
+      };
+
+      accentColour = mkOption {
+        type = types.nullOr (
+          types.enum [
+            "blue"
+            "teal"
+            "green"
+            "yellow"
+            "orange"
+            "red"
+            "pink"
+            "purple"
+            "slate"
+          ]
+        );
+        default = "blue";
+      };
     };
   };
 
@@ -63,10 +82,25 @@ in
             in
             "file://${str}";
         in
-        mkIf (cfg.wallpaper != null) {
-          picture-uri = toFileURI cfg.wallpaper;
-          picture-uri-dark = toFileURI cfg.wallpaper;
+        mkIf (cfg.settings.wallpaper != null) {
+          picture-uri = toFileURI cfg.settings.wallpaper;
+          picture-uri-dark = toFileURI cfg.settings.wallpaper;
         };
+
+      "org/gnome/desktop/datetime" = {
+        automatic-timezone = true;
+      };
+
+      "org/gnome/desktop/interface" = {
+        accent-color = cfg.settings.accentColour;
+        clock-show-weekday = true;
+        show-battery-percentage = true;
+      };
+
+      "org/gnome/desktop/peripherals/touchpad" = {
+        natural-scroll = false;
+        two-finger-scrolling-enabled = true; # TODO: This might be the default? Check it.
+      };
     };
   };
 }
