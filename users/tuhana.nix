@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   kind = config.tuhana.system.kind;
 in
@@ -8,6 +8,8 @@ in
 
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+
+    shell = pkgs.zsh;
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRxlolhp8bTNWcjkPz/Ib3jeru3r3URp3QGAY/meoww meow"

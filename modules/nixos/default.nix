@@ -13,6 +13,7 @@
 
     ./programs/git.nix
     ./programs/msedit.nix
+    ./programs/zsh.nix
 
     ./services/home-manager.nix
     ./services/openssh.nix

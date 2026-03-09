@@ -7,5 +7,6 @@
     ./programs/gh.nix
     ./programs/git.nix
     ./programs/vscode.nix
+    ./programs/zsh.nix
   ];
 }
