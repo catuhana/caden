@@ -84,7 +84,7 @@ in
       extensions = map (
         { extension, ... }:
         {
-          inherit extension;
+          package = extension;
         }
       ) cfg.extensions;
     };
