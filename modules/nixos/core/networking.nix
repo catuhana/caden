@@ -32,8 +32,7 @@ let
 in
 {
   options.tuhana.core.networking = {
-    # TODO: Rename this to something more conventional.
-    useCustomDNS = mkEnableOption "custom DNS servers" // {
+    customDNS.enable = mkEnableOption "custom DNS servers" // {
       default = true;
     };
 
@@ -57,10 +56,10 @@ in
         timeServers = [ "time.cloudflare.com" ];
       };
     }
-    (mkIf cfg.useCustomDNS {
+    (mkIf cfg.customDNS.enable {
       networking.nameservers = DNS.ips;
     })
-    (mkIf (cfg.useCustomDNS && cfg.captiveBrowser.interface != null && kind != "server") {
+    (mkIf (cfg.customDNS.enable && cfg.captiveBrowser.interface != null && kind != "server") {
       programs.captive-browser = {
         enable = true;
         interface = cfg.captiveBrowser.interface;
@@ -73,7 +72,7 @@ in
         settings.Resolve = {
           Domains = [ "~." ];
 
-          DNS = mkIf cfg.useCustomDNS DNS.dot;
+          DNS = mkIf cfg.customDNS.enable DNS.dot;
           DNSOverTLS = "opportunistic";
 
           MulticastDNS = cfg.resolved.mDNS;
