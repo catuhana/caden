@@ -23,10 +23,15 @@
   outputs =
     {
       flake-parts,
+      disko,
+      lanzaboote,
       ...
     }@inputs:
     let
-      mkSystem = import ./lib/mkSystem.nix { inherit inputs; };
+      mkSystem = import ./lib/mkSystem.nix {
+        inherit (inputs) home-manager;
+        inherit (inputs.nixpkgs.lib) nixosSystem;
+      };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -40,6 +45,11 @@
           hostName = "MateBookD14";
           system = "x86_64-linux";
           kind = "laptop";
+
+          extraModules = [
+            disko.nixosModules.default
+            lanzaboote.nixosModules.lanzaboote
+          ];
         };
       };
 
