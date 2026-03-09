@@ -7,13 +7,10 @@ let
   inherit (lib)
     mkIf
     mkMerge
-    mkOption
     mkEnableOption
-    types
     ;
 
   cfg = config.tuhana.core.networking;
-  kind = config.tuhana.system.kind;
 
   DNS = {
     ips = [
@@ -36,11 +33,6 @@ in
       default = true;
     };
 
-    captiveBrowser.interface = mkOption {
-      type = types.nullOr types.str;
-      default = null;
-    };
-
     resolved = {
       enable = mkEnableOption "systemd-resolved for DNS" // {
         default = true;
@@ -58,12 +50,6 @@ in
     }
     (mkIf cfg.customDNS.enable {
       networking.nameservers = DNS.ips;
-    })
-    (mkIf (cfg.customDNS.enable && cfg.captiveBrowser.interface != null && kind != "server") {
-      programs.captive-browser = {
-        enable = true;
-        interface = cfg.captiveBrowser.interface;
-      };
     })
     (mkIf cfg.resolved.enable {
       services.resolved = {
