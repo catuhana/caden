@@ -29,7 +29,12 @@ in
         experimental-features = [
           "nix-command"
           "flakes"
+          "cgroups"
+          "auto-allocate-uids"
         ];
+
+        use-cgroups = true;
+        auto-allocate-uids = true;
       };
 
       optimise.automatic = true;
