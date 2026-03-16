@@ -1,10 +1,12 @@
 {
-  description = "Tuhana's Nix configuration flake";
+  description = "Cat's den.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+    flake-aspects.url = "github:vic/flake-aspects";
+    den.url = "github:vic/den";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -21,48 +23,9 @@
   };
 
   outputs =
-    {
-      flake-parts,
-      disko,
-      lanzaboote,
-      ...
-    }@inputs:
-    let
-      mkSystem = import ./lib/mkSystem.nix {
-        inherit (inputs) home-manager;
-        inherit (inputs.nixpkgs.lib) nixosSystem;
-      };
-    in
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "aarch64-darwin"
-      ];
-
-      flake.nixosConfigurations = {
-        MateBookD14 = mkSystem {
-          hostName = "MateBookD14";
-          system = "x86_64-linux";
-          kind = "laptop";
-
-          extraModules = [
-            disko.nixosModules.default
-            lanzaboote.nixosModules.lanzaboote
-          ];
-        };
-      };
-
-      perSystem =
-        { pkgs, ... }:
-        {
-          devShells.default = pkgs.mkShell {
-            packages = with pkgs; [
-              nixd
-            ];
-          };
-
-          formatter = pkgs.nixfmt-tree;
-        };
-    };
+    inputs:
+    (inputs.nixpkgs.lib.evalModules {
+      modules = [ (inputs.import-tree ./modules) ];
+      specialArgs.inputs = inputs;
+    }).config.flake;
 }
