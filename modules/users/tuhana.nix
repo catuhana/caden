@@ -21,6 +21,7 @@
       caden.programs._.direnv
       caden.programs._.vscode
       caden.programs._.starship
+      caden.programs._.git
       caden.programs._.git._.users._.tuhana
     ];
 
