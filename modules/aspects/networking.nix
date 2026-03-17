@@ -1,7 +1,5 @@
 {
   caden.networking = {
-    nixos.networking.timeServers = [ "time.cloudflare.com" "pool.ntp.org" ];
-
     provides.dns.provides.cloudflare.nixos = {
       networking.nameservers = [
         "1.1.1.1"
