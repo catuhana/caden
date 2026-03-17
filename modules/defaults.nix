@@ -3,9 +3,9 @@
   den = {
     default = {
       includes = [
-        den.provides.hostname
-        den.provides.define-user
-        den.provides.primary-user
+        den._.hostname
+        den._.define-user
+        den._.primary-user
       ];
 
       nixos =

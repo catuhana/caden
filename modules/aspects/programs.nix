@@ -9,7 +9,7 @@
         settings.init.defaultBranch = "main";
       };
 
-      provides.users.provides.tuhana = {
+      provides.users._.tuhana = {
         homeManager = {
           programs.git = {
             settings.user = {

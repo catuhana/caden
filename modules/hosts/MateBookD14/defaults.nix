@@ -42,32 +42,32 @@
         audio
 
         boot
-        boot.provides.secure-boot
-        boot.provides.silent-boot
-        boot.provides.plymouth
+        boot._.secure-boot
+        boot._.silent-boot
+        boot._.plymouth
 
         gnome
 
-        locale.provides.tr_TR
-        locale.provides.en_GB
+        locale._.tr_TR
+        locale._.en_GB
 
         networking
-        networking.provides.resolved
-        networking.provides.resolved.provides.mdns
-        networking.provides.dns.provides.cloudflare
+        networking._.resolved
+        networking._.resolved._.mdns
+        networking._.dns._.cloudflare
 
-        programs.provides.git
-        programs.provides.msedit
+        programs._.git
+        programs._.msedit
 
-        security.provides.apparmor
-        security.provides.tpm2
+        security._.apparmor
+        security._.tpm2
 
-        services.provides.flatpak
-        services.provides.openssh
-        services.provides.scx
+        services._.flatpak
+        services._.openssh
+        services._.scx
 
         time
-        time.provides.Istanbul
+        time._.Istanbul
       ];
   };
 }

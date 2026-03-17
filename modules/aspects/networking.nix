@@ -1,6 +1,6 @@
 {
   caden.networking = {
-    provides.dns.provides.cloudflare.nixos = {
+    provides.dns._.cloudflare.nixos = {
       networking.nameservers = [
         "1.1.1.1"
         "1.0.0.1"

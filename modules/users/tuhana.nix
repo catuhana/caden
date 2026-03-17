@@ -2,26 +2,26 @@
 {
   den.aspects.tuhana = {
     includes = [
-      (den.provides.user-shell "zsh")
+      (den._.user-shell "zsh")
 
-      caden.gnome.provides.gnome-extensions
-      caden.gnome.provides.gnome-extensions.provides.blur-my-shell
-      caden.gnome.provides.gnome-extensions.provides.caffeine
-      caden.gnome.provides.gnome-extensions.provides.appindicator
+      caden.gnome._.gnome-extensions
+      caden.gnome._.gnome-extensions._.blur-my-shell
+      caden.gnome._.gnome-extensions._.caffeine
+      caden.gnome._.gnome-extensions._.appindicator
 
-      caden.gnome.provides.gnome-settings.provides.accent-colour.provides.purple
-      caden.gnome.provides.gnome-settings.provides.wallpapers.provides.and-the-circus-leaves-town
+      caden.gnome._.gnome-settings._.accent-colour._.purple
+      caden.gnome._.gnome-settings._.wallpapers._.and-the-circus-leaves-town
 
-      caden.programs.provides.zsh
-      caden.programs.provides.zsh.provides.plugins.provides.zsh-autosuggestions
-      caden.programs.provides.zsh.provides.plugins.provides.zsh-syntax-highlighting
-      caden.programs.provides.zsh.provides.plugins.provides.zsh-mommy
+      caden.programs._.zsh
+      caden.programs._.zsh._.plugins._.zsh-autosuggestions
+      caden.programs._.zsh._.plugins._.zsh-syntax-highlighting
+      caden.programs._.zsh._.plugins._.zsh-mommy
 
-      caden.programs.provides.gh
-      caden.programs.provides.direnv
-      caden.programs.provides.vscode
-      caden.programs.provides.starship
-      caden.programs.provides.git.provides.users.provides.tuhana
+      caden.programs._.gh
+      caden.programs._.direnv
+      caden.programs._.vscode
+      caden.programs._.starship
+      caden.programs._.git._.users._.tuhana
     ];
 
     nixos.users.users.tuhana = {

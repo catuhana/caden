@@ -91,7 +91,7 @@
           };
       };
 
-      provides.accent-colour.provides.purple.homeManager.dconf.settings."org/gnome/desktop/interface".accent-color =
+      provides.accent-colour._.purple.homeManager.dconf.settings."org/gnome/desktop/interface".accent-color =
         "purple";
     };
   };
