@@ -11,9 +11,17 @@
 
       provides.users.provides.tuhana = {
         homeManager = {
-          programs.git.settings.user = {
-            name = "tuhana";
-            email = "tuhana.cat+git@gmail.com";
+          programs.git = {
+            settings.user = {
+              name = "tuhana";
+              email = "tuhana.cat+git@gmail.com";
+            };
+
+            signing = {
+              signByDefault = true;
+              format = "ssh";
+              key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRxlolhp8bTNWcjkPz/Ib3jeru3r3URp3QGAY/meoww meow";
+            };
           };
         };
       };
@@ -45,6 +53,11 @@
 
         autocd = true;
         enableVteIntegration = true;
+
+        initContent = ''
+          bindkey "^[[1;3C" forward-word # Alt+Right
+          bindkey "^[[1;3D" backward-word # Alt+Left
+        '';
       };
 
       provides.plugins = {
@@ -68,5 +81,7 @@
         };
       };
     };
+
+    provides.starship.homeManager.programs.starship.enable = true;
   };
 }
