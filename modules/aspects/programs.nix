@@ -28,7 +28,10 @@
     };
 
     provides.gh.homeManager.programs.gh.enable = true;
-    provides.direnv.homeManager.programs.direnv.enable = true;
+    provides.direnv.homeManager.programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
     provides.msedit.nixos =
       { pkgs, ... }:
