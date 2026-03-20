@@ -10,7 +10,7 @@
       };
     };
 
-    # Maybe turn these into separate `provides`?
+    # TODO: Remove once GNOME 50 is in nixpkgs.
     programs.dconf.profiles.user.databases = [
       {
         settings = {

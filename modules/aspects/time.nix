@@ -7,7 +7,7 @@
       ];
     };
 
-    provides.Istanbul.nixos = {
+    provides.Istanbul.os = {
       time.timeZone = "Europe/Istanbul";
     };
   };

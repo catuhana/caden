@@ -16,7 +16,7 @@
         <den/define-user>
       ];
 
-      nixos =
+      os =
         { pkgs, ... }:
         {
           nixpkgs.config.allowUnfree = true;
