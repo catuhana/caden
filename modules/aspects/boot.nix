@@ -11,7 +11,11 @@
           kernelPackages = pkgs.linuxPackages_latest;
 
           loader = {
-            systemd-boot.editor = false;
+            systemd-boot = {
+              enable = true;
+              editor = false;
+            };
+
             efi.canTouchEfiVariables = true;
             timeout = 0;
           };
