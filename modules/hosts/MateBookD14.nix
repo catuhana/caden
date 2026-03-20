@@ -19,8 +19,8 @@
 
       <caden/gnome>
 
+      <caden/locale>
       <caden/locale/tr_TR>
-      <caden/locale/en_GB>
 
       <caden/networking>
       <caden/networking/resolved>

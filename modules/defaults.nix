@@ -43,6 +43,10 @@
       homeManager.nixpkgs.config.allowUnfree = true;
     };
 
-    schema.user.classes = [ "homeManager" ];
+    schema.user =
+      { lib, ... }:
+      {
+        config.classes = lib.mkDefault [ "homeManager" ];
+      };
   };
 }
