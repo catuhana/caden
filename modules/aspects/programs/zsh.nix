@@ -28,7 +28,7 @@
         includes = [
           <caden/programs/zsh/plugins/zsh-autosuggestions>
           <caden/programs/zsh/plugins/zsh-syntax-highlighting>
-          <caden/programs/zsh/plugins/zsh-mommy>
+          # <caden/programs/zsh/plugins/zsh-mommy>
         ];
 
         provides.zsh-autosuggestions = {
@@ -43,26 +43,26 @@
           };
         };
 
-        provides.zsh-mommy = {
-          homeManager =
-            { pkgs, ... }:
-            let
-              plugins = {
-                zsh-mommy = {
-                  name = "zsh-mommy";
-                  file = "zsh-mommy.zsh";
-                  src = pkgs.fetchgit {
-                    url = "https://git.gay/tuhana/zsh-mommy";
-                    rev = "ae86075156725d841c93f02be5796f1f750fcb3c";
-                    sha256 = "sha256-YqbTUfasecyJrVdTEn07Ja09kyXyOSUqrtQsl/s255c=";
-                  };
-                };
-              };
-            in
-            {
-              programs.zsh.plugins = [ plugins.zsh-mommy ];
-            };
-        };
+        # provides.zsh-mommy = {
+        #   homeManager =
+        #     { pkgs, ... }:
+        #     let
+        #       plugins = {
+        #         zsh-mommy = {
+        #           name = "zsh-mommy";
+        #           file = "zsh-mommy.zsh";
+        #           src = pkgs.fetchgit {
+        #             url = "https://git.gay/tuhana/zsh-mommy";
+        #             rev = "ae86075156725d841c93f02be5796f1f750fcb3c";
+        #             sha256 = "sha256-YqbTUfasecyJrVdTEn07Ja09kyXyOSUqrtQsl/s255c=";
+        #           };
+        #         };
+        #       };
+        #     in
+        #     {
+        #       programs.zsh.plugins = [ plugins.zsh-mommy ];
+        #     };
+        # };
       };
     };
   };
