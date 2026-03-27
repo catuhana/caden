@@ -6,7 +6,6 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
-    flake-aspects.url = "github:vic/flake-aspects";
     den.url = "github:vic/den";
 
     home-manager = {
@@ -19,11 +18,6 @@
     };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    jovian = {
-      url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

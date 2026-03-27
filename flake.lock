@@ -17,11 +17,11 @@
     },
     "den": {
       "locked": {
-        "lastModified": 1774498900,
-        "narHash": "sha256-THw/ly8KvXGQ0EI+Nhu/Eo9w8w7wtgHhAeWpteNiz/Q=",
+        "lastModified": 1774597022,
+        "narHash": "sha256-QEYG3SBlX35TDVV/wyBonrEDEK4Mr3dtXSfnzvM0lII=",
         "owner": "vic",
         "repo": "den",
-        "rev": "eb92bbfdefd22b76fa5781e8adbeff42c4fe429e",
+        "rev": "b7f910ab47260c91a0ae8d55fa72cd2178ba2458",
         "type": "github"
       },
       "original": {
@@ -48,21 +48,6 @@
         "owner": "nix-community",
         "ref": "latest",
         "repo": "disko",
-        "type": "github"
-      }
-    },
-    "flake-aspects": {
-      "locked": {
-        "lastModified": 1773552804,
-        "narHash": "sha256-a0kjpCZGnD5lt7yW6C3hzPhSf5KjnTyvX6XZ2NuhGs4=",
-        "owner": "vic",
-        "repo": "flake-aspects",
-        "rev": "56fa8d4d4772d58eb7f9d66c28c1cd2762b60423",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vic",
-        "repo": "flake-aspects",
         "type": "github"
       }
     },
@@ -129,11 +114,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774550169,
-        "narHash": "sha256-cLcm8jXyhEDRHTCN1fym6+5L6Z264kj2QBpL+/yT3WI=",
+        "lastModified": 1774626137,
+        "narHash": "sha256-1WelwA45Xm4glTG8R9IX9jYeFKDG2HbR79jAauLezUE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7622882af88598b882436416bd74154826fcf742",
+        "rev": "9df3a639007cfe0d074433f7fc225ea94f877d08",
         "type": "github"
       },
       "original": {
@@ -154,27 +139,6 @@
       "original": {
         "owner": "vic",
         "repo": "import-tree",
-        "type": "github"
-      }
-    },
-    "jovian": {
-      "inputs": {
-        "nix-github-actions": "nix-github-actions",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1774333446,
-        "narHash": "sha256-jeAUd4mfLle7Zw8F3lDdXvw2cmeP3FgVphHq2XuEKbs=",
-        "owner": "Jovian-Experiments",
-        "repo": "Jovian-NixOS",
-        "rev": "79b45622eff2ae0437d7a712610044bbc7b87fa2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Jovian-Experiments",
-        "repo": "Jovian-NixOS",
         "type": "github"
       }
     },
@@ -199,28 +163,6 @@
         "owner": "nix-community",
         "ref": "v1.0.0",
         "repo": "lanzaboote",
-        "type": "github"
-      }
-    },
-    "nix-github-actions": {
-      "inputs": {
-        "nixpkgs": [
-          "jovian",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1729697500,
-        "narHash": "sha256-VFTWrbzDlZyFHHb1AlKRiD/qqCJIripXKiCSFS8fAOY=",
-        "owner": "zhaofengli",
-        "repo": "nix-github-actions",
-        "rev": "e418aeb728b6aa5ca8c5c71974e7159c2df1d8cf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zhaofengli",
-        "ref": "matrix-name",
-        "repo": "nix-github-actions",
         "type": "github"
       }
     },
@@ -282,11 +224,9 @@
       "inputs": {
         "den": "den",
         "disko": "disko",
-        "flake-aspects": "flake-aspects",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
-        "jovian": "jovian",
         "lanzaboote": "lanzaboote",
         "nixpkgs": "nixpkgs"
       }

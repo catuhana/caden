@@ -47,28 +47,9 @@
       ];
 
       nixos =
-        { pkgs, lib, ... }:
+        { pkgs, ... }:
         {
           imports = [ inputs.disko.nixosModules.default ];
-
-          specialisation.gaming.configuration = {
-            imports = [ inputs.jovian.nixosModules.default ];
-
-            services = {
-              displayManager.gdm.enable = lib.mkForce false;
-            };
-
-            jovian = {
-              steam = {
-                enable = true;
-
-                autoStart = true;
-                user = "tuhana";
-
-                desktopSession = "gnome";
-              };
-            };
-          };
 
           services.fwupd.enable = true;
 
@@ -77,11 +58,6 @@
             cpu.intel.updateMicrocode = true;
             graphics.extraPackages = [ pkgs.intel-media-driver ];
           };
-
-          #boot.kernelParams = [
-          #  "xe.force_probe=46a6"
-          #  "i915.force_probe=!46a6"
-          #];
 
           disko.devices = {
             disk = {
