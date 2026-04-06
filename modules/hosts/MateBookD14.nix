@@ -41,6 +41,7 @@
         <caden/services/flatpak>
         <caden/services/openssh>
         <caden/services/scx>
+        <caden/services/usbmuxd>
 
         <caden/time>
         <caden/time/Istanbul>
