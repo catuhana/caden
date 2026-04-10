@@ -63,6 +63,11 @@
             graphics.extraPackages = [ pkgs.intel-media-driver ];
           };
 
+          boot.kernelParams = [
+            "xe.force_probe=46a6"
+            "i915.force_probe=!46a6"
+          ];
+
           disko.devices = {
             disk = {
               main = {
