@@ -43,7 +43,8 @@
         <caden/services/scx>
         <caden/services/thermald>
         <caden/services/usbmuxd>
-        <caden/services/waydroid>
+
+        <caden/virtualisation/waydroid>
 
         <caden/time>
         <caden/time/Istanbul>
