@@ -42,6 +42,7 @@
         <caden/services/openssh>
         <caden/services/scx>
         <caden/services/usbmuxd>
+        <caden/services/waydroid>
 
         <caden/time>
         <caden/time/Istanbul>
