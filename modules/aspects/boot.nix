@@ -8,7 +8,7 @@
       { pkgs, lib, ... }:
       {
         boot = {
-          kernelPackages = pkgs.linuxPackages_xanmod_stable;
+          kernelPackages = pkgs.linuxPackages_zen;
 
           loader = {
             systemd-boot = {
