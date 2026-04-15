@@ -45,17 +45,12 @@
         <caden/services/usbmuxd>
 
         <caden/virtualisation/waydroid>
-
-        <caden/time>
-        <caden/time/Istanbul>
       ];
 
       nixos =
         { pkgs, ... }:
         {
           imports = [ inputs.disko.nixosModules.default ];
-
-          services.fwupd.enable = true;
 
           hardware = {
             enableAllFirmware = true;
