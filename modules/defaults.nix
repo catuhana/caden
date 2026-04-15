@@ -14,6 +14,7 @@
       includes = [
         <den/hostname>
         <den/define-user>
+        <den/mutual-provider>
       ];
 
       os =
