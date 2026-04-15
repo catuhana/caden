@@ -3,6 +3,26 @@
   ...
 }:
 {
+  den.hosts = {
+    x86_64-linux = {
+      MateBookD14 = {
+        users.tuhana = {
+          caden = {
+            gnome = {
+              shell = {
+                settings = {
+                  appearance = {
+                    accent-colour = "slate";
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+
   den.aspects = {
     tuhana = {
       includes = [
