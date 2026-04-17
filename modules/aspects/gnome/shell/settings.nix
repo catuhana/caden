@@ -11,17 +11,19 @@
         ];
 
         provides.appearance =
-          { user, lib, ... }:
+          { user, ... }:
           {
-            homeManager = _: {
-              dconf.settings =
-                let
-                  accent-colour = user.caden.gnome.shell.settings.appearance.accent-colour;
-                in
-                {
-                  "org/gnome/desktop/interface".accent-color = lib.mkIf (accent-colour != null) accent-colour;
-                };
-            };
+            homeManager =
+              { lib, ... }:
+              {
+                dconf.settings =
+                  let
+                    accent-colour = user.caden.gnome.shell.settings.appearance.accent-colour;
+                  in
+                  {
+                    "org/gnome/desktop/interface".accent-color = lib.mkIf (accent-colour != null) accent-colour;
+                  };
+              };
           };
       };
     };
