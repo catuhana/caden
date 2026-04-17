@@ -10,6 +10,13 @@
           caden = {
             gnome = {
               shell = {
+                extensions = {
+                  blur-my-shell.enable = true;
+                  caffeine.enable = true;
+                  appindicator.enable = true;
+                  copyous.enable = true;
+                };
+
                 settings = {
                   appearance = {
                     accent-colour = "purple";
@@ -30,8 +37,6 @@
         <den/primary-user>
 
         <caden/gnome/shell>
-        <caden/gnome/shell/extensions>
-        <caden/gnome/shell/settings>
 
         <caden/programs/claude-desktop>
         <caden/programs/direnv>
@@ -45,7 +50,7 @@
         description = "Tuhana GAYRETLİ";
 
         openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRxlolhp8bTNWcjkPz/Ib3jeru3r3URp3QGAY/meoww meow"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRxlolhp8bTNWcjkPz/Ib3jeru3r3URp3QGAY/meoww"
           "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKYu6luGMLWJ66nJxf/UrS18bHs2ru9rOzVaOKk+7THCdacTcq8IrEuvF8L0snXiCc9OtxvkUr05sN448cub2sw="
         ];
       };
