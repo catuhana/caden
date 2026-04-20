@@ -23,14 +23,23 @@
                 ]
                 ++ lib.optionals user.caden.gnome.shell.extensions.copyous.enable [
                   {
-                    package = pkgs.gnomeExtensions.copyous.overrideAttrs (old: {
-                      buildInputs = [ pkgs.libgda5 ];
+                    package = pkgs.gnomeExtensions.copyous.overrideAttrs (
+                      old:
+                      let
+                        inherit (pkgs)
+                          gsound
+                          libgda5
+                          ;
+                      in
+                      {
+                        buildInputs = [ libgda5 ];
 
-                      preInstall = ''
-                        sed -i "1i import GIRepository from 'gi://GIRepository';\nGIRepository.Repository.dup_default().prepend_search_path('${pkgs.libgda5}/lib/girepository-1.0');\nGIRepository.Repository.dup_default().prepend_search_path('${pkgs.gsound}/lib/girepository-1.0');\n" lib/preferences/dependencies/dependencies.js
-                        sed -i "1i import GIRepository from 'gi://GIRepository';\nGIRepository.Repository.dup_default().prepend_search_path('${pkgs.libgda5}/lib/girepository-1.0');\n" lib/misc/db.js
-                      '';
-                    });
+                        preInstall = ''
+                          sed -i "1i import GIRepository from 'gi://GIRepository';\nGIRepository.Repository.dup_default().prepend_search_path('${libgda5}/lib/girepository-1.0');\nGIRepository.Repository.dup_default().prepend_search_path('${gsound}/lib/girepository-1.0');\n" lib/preferences/dependencies/dependencies.js
+                          sed -i "1i import GIRepository from 'gi://GIRepository';\nGIRepository.Repository.dup_default().prepend_search_path('${libgda5}/lib/girepository-1.0');\n" lib/misc/db.js
+                        '';
+                      }
+                    );
                   }
                 ];
             };
