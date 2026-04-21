@@ -35,7 +35,7 @@
         <caden/programs/git>
         <caden/programs/msedit>
 
-        <caden/security/apparmor>
+        #<caden/security/apparmor>
         <caden/security/tpm2>
 
         <caden/services/flatpak>
