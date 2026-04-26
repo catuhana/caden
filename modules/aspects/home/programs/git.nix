@@ -1,10 +1,6 @@
 _: {
   caden.programs = {
     provides.git = {
-      nixos = _: {
-        programs.git.enable = true;
-      };
-
       homeManager = _: {
         programs.git.enable = true;
       };

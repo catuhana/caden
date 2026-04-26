@@ -1,8 +1,4 @@
-{
-  __findFile,
-  ...
-}:
-{
+_: {
   caden.gnome = {
     provides.shell = {
       provides.extensions =
@@ -24,7 +20,7 @@
                 ++ lib.optionals user.caden.gnome.shell.extensions.copyous.enable [
                   {
                     package = pkgs.gnomeExtensions.copyous.overrideAttrs (
-                      old:
+                      _:
                       let
                         inherit (pkgs)
                           gsound
