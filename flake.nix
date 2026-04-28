@@ -37,10 +37,12 @@
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        (inputs.import-tree ./den)
-        (inputs.import-tree ./features)
-        (inputs.import-tree ./hosts)
-        (inputs.import-tree ./users)
+        (inputs.import-tree [
+          ./den
+          ./features
+          ./hosts
+          ./users
+        ])
       ];
 
       perSystem =
