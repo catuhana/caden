@@ -9,7 +9,7 @@
         { pkgs, lib, ... }:
         {
           boot = {
-            kernelPackages = pkgs.linuxPackages_zen;
+            kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
             loader = {
               systemd-boot = {
