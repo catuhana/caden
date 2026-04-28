@@ -8,8 +8,8 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    import-tree.url = "github:vic/import-tree";
-    den.url = "github:vic/den";
+    import-tree.url = "github:denful/import-tree";
+    den.url = "github:denful/den";
 
     home-manager = {
       url = "github:nix-community/home-manager";
