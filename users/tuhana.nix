@@ -7,7 +7,7 @@
     x86_64-linux = {
       MateBookD14 = {
         users.tuhana = {
-          caden.home.gnome = {
+          caden.gnome = {
             shell = {
               extensions = {
                 blur-my-shell.enable = true;
@@ -30,17 +30,17 @@
         (<den/user-shell> "bash")
         <den/primary-user>
 
-        <caden/home/gnome/shell>
-        <caden/home/gnome/shell/extensions>
-        <caden/home/gnome/shell/settings>
+        <caden/gnome/shell>
+        <caden/gnome/shell/extensions>
+        <caden/gnome/shell/settings>
 
-        <caden/home/programs/claude-desktop>
-        <caden/home/programs/comma>
-        <caden/home/programs/direnv>
-        <caden/home/programs/gh>
-        <caden/home/programs/git>
-        <caden/home/programs/nh>
-        <caden/home/programs/vscode>
+        <caden/programs/claude-desktop>
+        <caden/programs/comma>
+        <caden/programs/direnv>
+        <caden/programs/gh>
+        <caden/programs/git>
+        <caden/programs/nh>
+        <caden/programs/vscode>
       ];
 
       user = _: {

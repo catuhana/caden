@@ -4,7 +4,7 @@ _: {
       { lib, ... }:
       {
         options = {
-          caden.home.gnome = {
+          caden.gnome = {
             shell = {
               extensions = {
                 blur-my-shell.enable = lib.mkEnableOption "Blur My Shell GNOME extension";

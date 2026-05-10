@@ -1,0 +1,76 @@
+{
+  inputs,
+  ...
+}:
+{
+  caden.core = {
+    provides.boot = {
+      nixos =
+        { lib, ... }:
+        {
+          boot = {
+            loader = {
+              systemd-boot = {
+                enable = lib.mkDefault true;
+                editor = false;
+              };
+
+              efi.canTouchEfiVariables = true;
+              timeout = 0;
+            };
+
+            initrd.systemd.enable = true;
+
+            tmp = {
+              useTmpfs = true;
+              tmpfsHugeMemoryPages = "within_size";
+            };
+          };
+        };
+
+      provides.secure-boot = {
+        nixos =
+          { pkgs, ... }:
+          {
+            # Maybe just import those always instead of
+            # importing when needed.
+            imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
+
+            environment.systemPackages = [ pkgs.sbctl ];
+
+            boot = {
+              loader.systemd-boot.enable = false;
+
+              lanzaboote = {
+                enable = true;
+
+                pkiBundle = "/var/lib/sbctl";
+
+                autoGenerateKeys.enable = true;
+              };
+            };
+          };
+      };
+
+      provides.silent-boot = {
+        nixos = _: {
+          boot = {
+            kernelParams = [
+              "quiet"
+              "udev.log_level=3"
+            ];
+
+            consoleLogLevel = 0;
+            initrd.verbose = false;
+          };
+        };
+      };
+
+      provides.plymouth = {
+        nixos = _: {
+          boot.plymouth.enable = true;
+        };
+      };
+    };
+  };
+}
