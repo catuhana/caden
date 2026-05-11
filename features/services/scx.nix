@@ -1,6 +1,6 @@
 _: {
   caden.services = {
-    provides.scx = {
+    scx = {
       nixos = _: {
         services.scx = {
           enable = true;

@@ -1,8 +1,8 @@
 _: {
   caden.core = {
-    provides.networking = {
-      provides.dns = {
-        provides.cloudflare = {
+    networking = {
+      dns = {
+        cloudflare = {
           nixos = _: {
             networking.nameservers = [
               "1.1.1.1"
@@ -21,7 +21,7 @@ _: {
         };
       };
 
-      provides.resolved = {
+      resolved = {
         nixos = _: {
           services.resolved = {
             enable = true;
@@ -34,7 +34,7 @@ _: {
           };
         };
 
-        provides.mdns = {
+        mdns = {
           nixos = _: {
             services.resolved.settings.Resolve.MulticastDNS = true;
           };

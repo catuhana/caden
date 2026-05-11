@@ -4,7 +4,7 @@
 }:
 {
   caden.core = {
-    provides.boot = {
+    boot = {
       nixos =
         { lib, ... }:
         {
@@ -28,14 +28,10 @@
           };
         };
 
-      provides.secure-boot = {
+      secure-boot = {
         nixos =
           { pkgs, ... }:
           {
-            # Maybe just import those always instead of
-            # importing when needed.
-            imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
-
             environment.systemPackages = [ pkgs.sbctl ];
 
             boot = {
@@ -52,7 +48,7 @@
           };
       };
 
-      provides.silent-boot = {
+      silent-boot = {
         nixos = _: {
           boot = {
             kernelParams = [
@@ -66,7 +62,7 @@
         };
       };
 
-      provides.plymouth = {
+      plymouth = {
         nixos = _: {
           boot.plymouth.enable = true;
         };

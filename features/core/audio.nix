@@ -3,7 +3,7 @@
 # already enable them.
 _: {
   caden.core = {
-    provides.audio = {
+    audio = {
       nixos = _: {
         services.pipewire = {
           enable = true;

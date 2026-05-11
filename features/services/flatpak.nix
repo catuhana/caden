@@ -1,6 +1,6 @@
 _: {
   caden.services = {
-    provides.flatpak = {
+    flatpak = {
       nixos = _: {
         services.flatpak.enable = true;
       };

@@ -1,6 +1,6 @@
 _: {
   caden.programs = {
-    provides.git = {
+    git = {
       homeManager = _: {
         programs.git.enable = true;
       };

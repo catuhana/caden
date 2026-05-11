@@ -1,6 +1,6 @@
 _: {
   caden.programs = {
-    provides.direnv = {
+    direnv = {
       homeManager = _: {
         programs.direnv = {
           enable = true;

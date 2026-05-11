@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   caden.programs = {
-    provides.comma = {
+    comma = {
       homeManager = _: {
         imports = [ inputs.nix-index-database.homeModules.default ];
 

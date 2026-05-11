@@ -1,6 +1,6 @@
 _: {
   caden.services = {
-    provides.usbmuxd = {
+    usbmuxd = {
       nixos =
         { pkgs, ... }:
         {

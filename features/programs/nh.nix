@@ -1,6 +1,6 @@
 _: {
   caden.programs = {
-    provides.nh = {
+    nh = {
       homeManager = _: {
         programs.nh = {
           enable = true;

@@ -1,6 +1,6 @@
 _: {
   caden.services = {
-    provides.thermald = {
+    thermald = {
       nixos = _: {
         services.thermald.enable = true;
       };

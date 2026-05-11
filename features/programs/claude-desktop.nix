@@ -1,6 +1,6 @@
 _: {
   caden.programs = {
-    provides.claude-desktop = {
+    claude-desktop = {
       homeManager =
         { pkgs, ... }:
         {

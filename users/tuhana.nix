@@ -1,6 +1,6 @@
 {
   den,
-  __findFile,
+  caden,
   ...
 }:
 {
@@ -28,17 +28,17 @@
   den.aspects = {
     tuhana = {
       includes = [
-        <caden/gnome/shell>
-        <caden/gnome/shell/extensions>
-        <caden/gnome/shell/settings>
+        caden.gnome.shell
+        caden.gnome.shell.extensions
+        caden.gnome.shell.settings
 
-        <caden/programs/claude-desktop>
-        <caden/programs/comma>
-        <caden/programs/direnv>
-        <caden/programs/gh>
-        <caden/programs/git>
-        <caden/programs/nh>
-        <caden/programs/vscode>
+        caden.programs.claude-desktop
+        caden.programs.comma
+        caden.programs.direnv
+        caden.programs.gh
+        caden.programs.git
+        caden.programs.nh
+        caden.programs.vscode
       ]
       ++ (
         builtins.attrValues {

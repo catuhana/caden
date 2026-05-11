@@ -1,14 +1,14 @@
 {
-  __findFile,
+  caden,
   ...
 }:
 {
   caden.gnome = {
-    provides.shell = {
-      provides.settings = {
-        includes = [ <caden/gnome/shell/settings/appearance> ];
+    shell = {
+      settings = {
+        includes = [ caden.gnome.shell.settings.appearance ];
 
-        provides.appearance =
+        appearance =
           { user, ... }:
           {
             homeManager =

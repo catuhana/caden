@@ -1,6 +1,6 @@
 _: {
   caden.programs = {
-    provides.msedit = {
+    msedit = {
       # TODO: Put this under `homeManager`, it's kind of
       # like a user preference.
       nixos =

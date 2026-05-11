@@ -1,6 +1,6 @@
 _: {
   caden.services = {
-    provides.userborn = {
+    userborn = {
       nixos = _: {
         services.userborn.enable = true;
       };

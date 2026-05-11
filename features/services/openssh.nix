@@ -1,6 +1,6 @@
 _: {
   caden.services = {
-    provides.openssh = {
+    openssh = {
       nixos = _: {
         services.openssh = {
           enable = true;

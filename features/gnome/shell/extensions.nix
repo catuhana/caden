@@ -1,7 +1,7 @@
 _: {
   caden.gnome = {
-    provides.shell = {
-      provides.extensions =
+    shell = {
+      extensions =
         { user, ... }:
         {
           homeManager =

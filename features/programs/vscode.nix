@@ -1,6 +1,6 @@
 _: {
   caden.programs = {
-    provides.vscode = {
+    vscode = {
       homeManager = _: {
         programs.vscode.enable = true;
       };

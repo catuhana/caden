@@ -1,9 +1,7 @@
-{ inputs, den, ... }:
+{ inputs, ... }:
 {
   imports = [
     inputs.den.flakeModule
-    (inputs.den.namespace "caden" false)
+    (inputs.den.namespace "caden" true)
   ];
-
-  _module.args.__findFile = den.lib.__findFile;
 }

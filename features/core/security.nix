@@ -1,7 +1,7 @@
 _: {
   caden.core = {
-    provides.security = {
-      provides.apparmor = {
+    security = {
+      apparmor = {
         nixos =
           { pkgs, ... }:
           {
@@ -12,7 +12,7 @@ _: {
           };
       };
 
-      provides.tpm2 = {
+      tpm2 = {
         nixos = _: {
           security.tpm2 = {
             enable = true;
