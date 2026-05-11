@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778290779,
-        "narHash": "sha256-GJPcr5sDr78I4hsMIlq1ZMET44l0kWIprycnQHXxedY=",
+        "lastModified": 1778469694,
+        "narHash": "sha256-W++Pf9M7FCZtaBhl6ZtBMiLV0NbBNk4/RGwfTYcjtr0=",
         "owner": "aaddrick",
         "repo": "claude-desktop-debian",
-        "rev": "429d191f771bef791527ff634ac663cb9b3f2b86",
+        "rev": "fa8f3441c0ea1146f2abbdbf5d39222ef5102a9e",
         "type": "github"
       },
       "original": {
@@ -40,11 +40,11 @@
     },
     "den": {
       "locked": {
-        "lastModified": 1778418267,
-        "narHash": "sha256-HQZeiX0pMfnu3+dmRC6yeaY3Voh6YygOEaETArhBZyc=",
+        "lastModified": 1778496221,
+        "narHash": "sha256-4wn/ALFqY67Lss2Ybrfa/XJvs/1QmedQe1qKo7o9CuQ=",
         "owner": "denful",
         "repo": "den",
-        "rev": "5b0e24786e4bf874f191ba9de1f4109a242e6900",
+        "rev": "25e2c476b9fb5bf6b38354a2de4bd6927a11bedb",
         "type": "github"
       },
       "original": {
@@ -139,11 +139,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778365864,
-        "narHash": "sha256-ImoT/wqmgMImf2dAC+E0MverAdA4QXsedOeES9B7Ezw=",
+        "lastModified": 1778444552,
+        "narHash": "sha256-f18pIiR9q/p1vHY93gmAum7aHhQOG49oGvAB9+lptRo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2f419037039a152448c5f4ae9494154753d1b399",
+        "rev": "dcebe66f958673729896eec2de4abfd86ef22d21",
         "type": "github"
       },
       "original": {
