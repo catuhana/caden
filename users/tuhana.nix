@@ -1,4 +1,5 @@
 {
+  den,
   __findFile,
   ...
 }:
@@ -27,9 +28,6 @@
   den.aspects = {
     tuhana = {
       includes = [
-        (<den/user-shell> "bash")
-        <den/primary-user>
-
         <caden/gnome/shell>
         <caden/gnome/shell/extensions>
         <caden/gnome/shell/settings>
@@ -41,7 +39,17 @@
         <caden/programs/git>
         <caden/programs/nh>
         <caden/programs/vscode>
-      ];
+      ]
+      ++ (
+        builtins.attrValues {
+          inherit (den.batteries)
+            primary-user
+            ;
+        }
+        ++ [
+          (den.batteries.user-shell "bash")
+        ]
+      );
 
       user = _: {
         description = "Tuhana GAYRETLİ";

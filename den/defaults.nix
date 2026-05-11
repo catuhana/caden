@@ -1,6 +1,6 @@
 {
+  den,
   inputs,
-  __findFile,
   ...
 }:
 {
@@ -12,11 +12,13 @@
 
   den = {
     default = {
-      includes = [
-        <den/hostname>
-        <den/define-user>
-        <den/mutual-provider>
-      ];
+      includes = builtins.attrValues {
+        inherit (den.batteries)
+          hostname
+          define-user
+          mutual-provider
+          ;
+      };
 
       os =
         { pkgs, ... }:
