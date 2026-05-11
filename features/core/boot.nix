@@ -1,8 +1,4 @@
-{
-  inputs,
-  ...
-}:
-{
+_: {
   caden.core = {
     boot = {
       nixos =
