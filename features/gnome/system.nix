@@ -10,20 +10,6 @@ _: {
           games.enable = false;
         };
       };
-
-      # TODO: Remove once GNOME 50 is in nixpkgs.
-      programs.dconf.profiles.user.databases = [
-        {
-          settings = {
-            "org/gnome/mutter" = {
-              experimental-features = [
-                "scale-monitor-framebuffer"
-                "xwayland-native-scaling"
-              ];
-            };
-          };
-        }
-      ];
     };
   };
 }

@@ -14,7 +14,7 @@
                 blur-my-shell.enable = true;
                 caffeine.enable = true;
                 appindicator.enable = true;
-                copyous.enable = true;
+                copyous.enable = false;
               };
 
               settings.appearance.accent-colour = "purple";

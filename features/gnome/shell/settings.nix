@@ -18,8 +18,8 @@
                   let
                     inherit (user.caden.gnome.shell.settings.appearance) accent-colour;
                   in
-                  {
-                    "org/gnome/desktop/interface".accent-color = lib.mkIf (accent-colour != null) accent-colour;
+                  lib.optionalAttrs (accent-colour != null) {
+                    "org/gnome/desktop/interface".accent-color = accent-colour;
                   };
               };
           };
