@@ -15,6 +15,7 @@
                 caffeine.enable = true;
                 appindicator.enable = true;
                 copyous.enable = false;
+                tint-my-gnome.enable = true;
               };
 
               settings.appearance.accent-colour = "purple";

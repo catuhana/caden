@@ -11,6 +11,7 @@ _: {
                 caffeine.enable = lib.mkEnableOption "Caffeine GNOME extension";
                 appindicator.enable = lib.mkEnableOption "AppIndicator GNOME extension";
                 copyous.enable = lib.mkEnableOption "Copyous GNOME extension";
+                tint-my-gnome.enable = lib.mkEnableOption "Tint My Gnome GNOME extension";
               };
 
               settings = {

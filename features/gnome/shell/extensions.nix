@@ -21,6 +21,11 @@ _: {
                   {
                     package = pkgs.gnomeExtensions.copyous;
                   }
+                ]
+                ++ lib.optionals user.caden.gnome.shell.extensions.tint-my-gnome.enable [
+                  {
+                    package = pkgs.gnomeExtensions.tint-my-gnome;
+                  }
                 ];
             };
         };
