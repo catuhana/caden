@@ -35,6 +35,7 @@
 
         caden.gnome
         caden.programs.msedit
+        caden.programs.nix-ld
 
         caden.services.flatpak
         caden.services.openssh
