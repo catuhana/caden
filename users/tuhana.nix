@@ -34,12 +34,10 @@
         caden.gnome.shell.settings
 
         caden.programs.claude-desktop
-        caden.programs.comma
         caden.programs.direnv
         caden.programs.gh
         caden.programs.git
         caden.programs.msedit
-        caden.programs.nh
         caden.programs.vscode
       ]
       ++ (
