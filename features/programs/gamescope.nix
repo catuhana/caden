@@ -1,16 +1,21 @@
 _: {
   caden.programs = {
     gamescope = {
-      nixos = _: {
-        programs = {
-          gamescope.capSysNice = true;
+      nixos =
+        { pkgs, ... }:
+        {
+          boot.kernelModules = [ "ntsync" ];
 
-          steam = {
-            enable = true;
-            gamescopeSession.enable = true;
+          programs = {
+            gamescope.capSysNice = true;
+
+            steam = {
+              enable = true;
+              gamescopeSession.enable = true;
+              extraCompatPackages = [ pkgs.proton-ge-bin ];
+            };
           };
         };
-      };
     };
   };
 }

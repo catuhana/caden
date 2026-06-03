@@ -7,7 +7,7 @@
     x86_64-linux = {
       MateBookD14 = {
         caden = {
-          services.scx.scheduler = "scx_lavd";
+          services.scx.scheduler = "scx_bpfland";
         };
       };
     };
@@ -33,6 +33,7 @@
         caden.core.security.tpm2
 
         caden.gnome
+        caden.programs.gamemode
         caden.programs.gamescope
         caden.programs.nix-ld
 
