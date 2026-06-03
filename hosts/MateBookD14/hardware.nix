@@ -5,7 +5,7 @@ _: {
         { pkgs, ... }:
         {
           boot = {
-            kernelPackages = pkgs.linuxPackages_xanmod_latest;
+            kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
 
             kernelParams = [
               "xe.force_probe=46a6"

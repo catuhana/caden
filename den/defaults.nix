@@ -22,7 +22,10 @@
       os = _: {
         nixpkgs = {
           config.allowUnfree = true;
-          overlays = [ inputs.claude-desktop.overlays.default ];
+          overlays = [
+            inputs.claude-desktop.overlays.default
+            inputs.nix-cachyos-kernel.overlays.pinned
+          ];
         };
       };
 
@@ -52,6 +55,11 @@
 
               use-cgroups = true;
               auto-allocate-uids = true;
+
+              extra-substituters = [ "https://attic.xuyh0120.win/lantian" ];
+              extra-trusted-public-keys = [
+                "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+              ];
             };
 
             optimise.automatic = true;
