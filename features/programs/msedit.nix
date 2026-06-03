@@ -1,15 +1,13 @@
 _: {
   caden.programs = {
     msedit = {
-      # TODO: Put this under `homeManager`, it's kind of
-      # like a user preference.
-      nixos =
+      homeManager =
         { pkgs, ... }:
         {
-          environment = {
-            systemPackages = [ pkgs.msedit ];
+          home = {
+            packages = [ pkgs.msedit ];
 
-            variables = {
+            sessionVariables = {
               EDITOR = "edit";
               VISUAL = "edit";
             };

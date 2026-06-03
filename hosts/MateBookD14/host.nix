@@ -34,7 +34,6 @@
         caden.core.security.tpm2
 
         caden.gnome
-        caden.programs.msedit
         caden.programs.nix-ld
 
         caden.services.flatpak
