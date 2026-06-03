@@ -1,13 +1,18 @@
 _: {
   caden.services = {
-    scx = {
-      nixos = _: {
-        services.scx = {
-          enable = true;
-          # Figure out a way to configure this on different hosts.
-          # scheduler = "scx_lavd";
-        };
+    scx =
+      { host, ... }:
+      {
+        nixos =
+          { lib, ... }:
+          {
+            services.scx = {
+              enable = true;
+            }
+            // lib.optionalAttrs (host.caden.services.scx.scheduler != null) {
+              scheduler = host.caden.services.scx.scheduler;
+            };
+          };
       };
-    };
   };
 }
