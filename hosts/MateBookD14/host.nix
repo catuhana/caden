@@ -18,8 +18,6 @@
       includes = [
         caden.core.audio
 
-        # I think secure boot and whatnot (and others too) should also be
-        # schema-ised just like the GNOME one. Investigate.
         caden.core.boot
         caden.core.boot.secure-boot
         caden.core.boot.silent-boot
