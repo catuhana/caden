@@ -16,22 +16,23 @@
         inherit (den.batteries)
           hostname
           define-user
-          mutual-provider
           ;
       };
 
-      os =
+      os = _: {
+        nixpkgs = {
+          config.allowUnfree = true;
+          overlays = [ inputs.claude-desktop.overlays.default ];
+        };
+      };
+
+      nixos =
         { pkgs, ... }:
         {
           imports = [
             inputs.disko.nixosModules.default
             inputs.lanzaboote.nixosModules.lanzaboote
           ];
-
-          nixpkgs = {
-            config.allowUnfree = true;
-            overlays = [ inputs.claude-desktop.overlays.default ];
-          };
 
           home-manager = {
             useGlobalPkgs = true;

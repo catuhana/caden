@@ -1,7 +1,7 @@
-{ ... }: {
+_: {
   caden.programs = {
     nix-ld = {
-      nixos = { ... }: {
+      nixos = _: {
         programs.nix-ld.enable = true;
       };
     };
