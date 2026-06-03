@@ -24,9 +24,6 @@
         caden.core.boot.plymouth
 
         caden.core.locale
-        # Remove this, enable all languages and let the user
-        # pick the one they want in the DE or wherever.
-        caden.core.locale.tr_TR
 
         caden.core.networking.resolved
         caden.core.networking.resolved.mdns
