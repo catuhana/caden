@@ -1,6 +1,3 @@
-# Maybe this file is not the best place to have this?
-# Or maybe even remove since desktop environment modules
-# already enable them.
 _: {
   caden.core = {
     audio = {
