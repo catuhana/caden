@@ -7,8 +7,6 @@ _: {
           boot.kernelModules = [ "ntsync" ];
 
           programs = {
-            gamescope.capSysNice = true;
-
             steam = {
               enable = true;
               gamescopeSession.enable = true;
