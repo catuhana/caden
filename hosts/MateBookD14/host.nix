@@ -33,6 +33,7 @@
         caden.core.security.tpm2
 
         caden.gnome
+        caden.programs.gamescope
         caden.programs.nix-ld
 
         caden.services.flatpak
