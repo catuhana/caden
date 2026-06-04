@@ -25,7 +25,6 @@
 
         caden.core.locale
 
-        caden.core.networking.iwd
         caden.core.networking.resolved
         caden.core.networking.resolved.mdns
         caden.core.networking.dns.cloudflare

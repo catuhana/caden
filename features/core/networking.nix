@@ -21,13 +21,6 @@ _: {
         };
       };
 
-      iwd = {
-        nixos = _: {
-          networking.networkmanager.wifi.backend = "iwd";
-          networking.wireless.iwd.enable = true;
-        };
-      };
-
       resolved = {
         nixos = _: {
           services.resolved = {
