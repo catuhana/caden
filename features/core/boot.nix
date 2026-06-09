@@ -15,8 +15,6 @@ _: {
               timeout = 0;
             };
 
-            initrd.systemd.enable = true;
-
             tmp = {
               useTmpfs = true;
               tmpfsHugeMemoryPages = "within_size";
