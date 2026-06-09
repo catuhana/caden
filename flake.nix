@@ -39,8 +39,8 @@
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
+        ./den.nix
         (inputs.import-tree [
-          ./den
           ./features
           ./hosts
           ./users

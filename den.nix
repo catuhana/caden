@@ -4,6 +4,11 @@
   ...
 }:
 {
+  imports = [
+    inputs.den.flakeModule
+    (inputs.den.namespace "caden" true)
+  ];
+
   systems = [
     "x86_64-linux"
     "aarch64-linux"
@@ -22,6 +27,7 @@
       os = _: {
         nixpkgs = {
           config.allowUnfree = true;
+
           overlays = [
             inputs.claude-desktop.overlays.default
             inputs.nix-cachyos-kernel.overlays.pinned
