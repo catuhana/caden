@@ -13,7 +13,7 @@ Development happens inside a Nix flake development shell, loaded automatically v
 
 ## Committing
 
-Before committing, ALWAYS run and ensure these pass:
+Before committing, unless the change is trivial, ALWAYS run and ensure these pass:
 
 1. `nix flake check`
 2. `nix fmt`
