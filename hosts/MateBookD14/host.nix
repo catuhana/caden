@@ -23,6 +23,8 @@
         caden.core.boot.silent-boot
         caden.core.boot.plymouth
 
+        caden.core.documentation
+
         caden.core.locale
 
         caden.core.nixos-init
