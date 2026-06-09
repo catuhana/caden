@@ -46,23 +46,33 @@
             package = pkgs.lixPackageSets.latest.lix;
 
             settings = {
+              auto-allocate-uids = true;
+              auto-optimise-store = true;
+
+              extra-substituters = [
+                "https://nix-community.cachix.org"
+                "https://attic.xuyh0120.win/lantian"
+              ];
+
+              extra-trusted-public-keys = [
+                "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+                "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+              ];
+
+              keep-going = true;
+
+              trusted-users = [ "@wheel" ];
+
+              use-cgroups = true;
+              use-xdg-base-directories = true;
+
               experimental-features = [
                 "nix-command"
                 "flakes"
                 "cgroups"
                 "auto-allocate-uids"
               ];
-
-              use-cgroups = true;
-              auto-allocate-uids = true;
-
-              extra-substituters = [ "https://attic.xuyh0120.win/lantian" ];
-              extra-trusted-public-keys = [
-                "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-              ];
             };
-
-            optimise.automatic = true;
           };
 
           system.stateVersion = "26.05";
