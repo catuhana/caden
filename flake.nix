@@ -39,7 +39,9 @@
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
+        inputs.den.flakeModule
         ./den.nix
+
         (inputs.import-tree [
           ./features
           ./hosts
@@ -47,16 +49,16 @@
         ])
       ];
 
+      systems = inputs.nixpkgs.lib.systems.flakeExposed;
+
       perSystem =
         { pkgs, ... }:
         {
           devShells.default = pkgs.mkShellNoCC {
-            packages = builtins.attrValues {
-              inherit (pkgs)
-                nixd
-                nixfmt
-                ;
-            };
+            packages = [
+              pkgs.nixd
+              pkgs.nixfmt
+            ];
           };
 
           formatter = pkgs.nixfmt-tree;

@@ -1,18 +1,11 @@
 {
-  den,
   inputs,
+  den,
   ...
 }:
 {
   imports = [
-    inputs.den.flakeModule
     (inputs.den.namespace "caden" true)
-  ];
-
-  systems = [
-    "x86_64-linux"
-    "aarch64-linux"
-    "aarch64-darwin"
   ];
 
   den = {
