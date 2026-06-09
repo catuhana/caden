@@ -44,6 +44,10 @@
         caden.services.userborn
         caden.services.usbmuxd
       ];
+
+      nixos = _: {
+        system.stateVersion = "26.05";
+      };
     };
   };
 }

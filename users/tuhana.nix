@@ -74,6 +74,8 @@
             format = "ssh";
           };
         };
+
+        home.stateVersion = "26.05";
       };
     };
   };
