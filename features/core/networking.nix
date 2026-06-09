@@ -23,6 +23,8 @@ _: {
 
       resolved = {
         nixos = _: {
+          networking.networkmanager.dns = "systemd-resolved";
+
           services.resolved = {
             enable = true;
 
