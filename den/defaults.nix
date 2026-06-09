@@ -82,5 +82,15 @@
         home.stateVersion = "26.05";
       };
     };
+
+    schema = {
+      user =
+        { lib, ... }:
+        {
+          config = {
+            classes = lib.mkDefault [ "homeManager" ];
+          };
+        };
+    };
   };
 }
