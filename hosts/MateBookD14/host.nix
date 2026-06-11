@@ -42,7 +42,6 @@
         caden.services.flatpak
         caden.services.openssh
         caden.services.scx
-        caden.services.thermald
         caden.services.userborn
         caden.services.usbmuxd
       ];
