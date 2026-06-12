@@ -39,6 +39,7 @@
         caden.programs.gamescope
         caden.programs.nix-ld
 
+        caden.services.bluetooth
         caden.services.flatpak
         caden.services.openssh
         caden.services.scx
