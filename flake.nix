@@ -29,40 +29,31 @@
         rust-overlay.follows = "rust-overlay";
       };
     };
-
-    claude-desktop = {
-      url = "github:aaddrick/claude-desktop-debian/e85450c90ba38159f89f02bdd0f6c6d7e6bce065";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-      };
-    };
   };
 
   outputs =
     inputs:
+    let
+      cadenLib = import ./lib { inherit (inputs.nixpkgs) lib; };
+    in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = inputs.nixpkgs.lib.systems.flakeExposed;
 
       flake.nixosConfigurations.MateBookD14 = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs cadenLib; };
+
         modules = [
           ./modules/nixos/common.nix
-          ./hosts/MateBookD14
+          ./hosts/MateBookD14/configuration.nix
         ];
       };
 
       perSystem =
         { pkgs, ... }:
         {
-          devShells.default = pkgs.mkShellNoCC {
-            packages = [
-              pkgs.nixd
-              pkgs.nixfmt
-            ];
-          };
+          devShells.default = import ./devshell.nix { inherit pkgs; };
 
-          formatter = pkgs.nixfmt-tree;
+          formatter = import ./formatter.nix { inherit pkgs; };
         };
     };
 }

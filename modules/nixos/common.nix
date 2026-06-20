@@ -10,13 +10,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  nixpkgs = {
-    config.allowUnfree = true;
-
-    overlays = [
-      inputs.claude-desktop.overlays.default
-    ];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   home-manager = {
     useGlobalPkgs = true;

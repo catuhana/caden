@@ -1,8 +1,15 @@
-{ pkgs, ... }:
+{ cadenLib, pkgs, ... }:
+let
+  username = "tuhana";
+in
 {
-  users.users.tuhana = {
-    name = "tuhana";
-    home = "/home/tuhana";
+  imports = [
+    (cadenLib.mkHomeAlias username)
+  ];
+
+  users.users.${username} = {
+    name = username;
+    home = "/home/${username}";
     isNormalUser = true;
 
     description = "Tuhana GAYRETLİ";
@@ -23,20 +30,19 @@
 
   programs.bash.enable = true;
 
-  home-manager.users.tuhana = {
+  home-manager.users.${username} = {
     imports = [
-      ../../home-manager/programs/git.nix
-      ../../home-manager/programs/vscode.nix
-      ../../home-manager/programs/direnv.nix
-      ../../home-manager/programs/gh.nix
-      ../../home-manager/programs/msedit.nix
-      ../../home-manager/programs/claude-desktop.nix
-      ../../home-manager/gnome/shell.nix
+      ../../../modules/home/programs/git.nix
+      ../../../modules/home/programs/vscode.nix
+      ../../../modules/home/programs/direnv.nix
+      ../../../modules/home/programs/gh.nix
+      ../../../modules/home/programs/msedit.nix
+      ../../../modules/home/gnome/shell.nix
     ];
 
     home = {
-      username = "tuhana";
-      homeDirectory = "/home/tuhana";
+      inherit username;
+      homeDirectory = "/home/${username}";
       stateVersion = "26.05";
     };
 

@@ -1,7 +1,7 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
-    ../../modules/nixos/users/tuhana.nix
+    ./users/tuhana.nix
 
     ./hardware.nix
     ./disko.nix
@@ -62,12 +62,9 @@
     '';
   };
 
-  home-manager.users.tuhana.caden.gnome.shell = {
-    extensions = {
-      blur-my-shell.enable = true;
-      caffeine.enable = true;
-      appindicator.enable = true;
-    };
-    settings.appearance.accent-colour = "purple";
-  };
+  hm.caden.gnome.shell.extensions = with pkgs.gnomeExtensions; [
+    blur-my-shell
+    caffeine
+    appindicator
+  ];
 }
