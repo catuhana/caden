@@ -8,8 +8,6 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    import-tree.url = "github:denful/import-tree";
-    den.url = "github:denful/den";
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
@@ -44,18 +42,15 @@
   outputs =
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        inputs.den.flakeModule
-        ./den.nix
-
-        (inputs.import-tree [
-          ./features
-          ./hosts
-          ./users
-        ])
-      ];
-
       systems = inputs.nixpkgs.lib.systems.flakeExposed;
+
+      flake.nixosConfigurations.MateBookD14 = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./modules/nixos/common.nix
+          ./hosts/MateBookD14
+        ];
+      };
 
       perSystem =
         { pkgs, ... }:
