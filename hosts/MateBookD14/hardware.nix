@@ -2,21 +2,22 @@ _: {
   den.aspects = {
     MateBookD14 = {
       nixos =
-        { pkgs, ... }:
+        { lib, pkgs, ... }:
         {
-          boot = {
-            kernelPackages = pkgs.linuxPackages_latest;
-
-            kernelParams = [
-              "xe.force_probe=46a6"
-              "i915.force_probe=!46a6"
-            ];
-          };
+          boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
           hardware = {
             enableAllFirmware = true;
             cpu.intel.updateMicrocode = true;
-            graphics.extraPackages = [ pkgs.intel-media-driver ];
+
+            graphics.extraPackages = [
+              pkgs.intel-media-driver
+              pkgs.vpl-gpu-rt
+            ];
+          };
+
+          environment.sessionVariables = {
+            LIBVA_DRIVER_NAME = "iHD";
           };
         };
     };
