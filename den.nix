@@ -20,12 +20,80 @@
       };
 
       nixos =
-        { pkgs, ... }:
+        {
+          config,
+          lib,
+          pkgs,
+          ...
+        }:
         {
           imports = [
             inputs.disko.nixosModules.default
             inputs.lanzaboote.nixosModules.lanzaboote
+
+            {
+              options.caden.reinstall = {
+                enable = lib.mkEnableOption "re-install gates";
+
+                gates = lib.mkOption {
+                  default = { };
+                  type = lib.types.attrsOf (
+                    lib.types.submodule {
+                      options = {
+                        assertion = lib.mkOption {
+                          type = lib.types.bool;
+                        };
+
+                        description = lib.mkOption {
+                          type = lib.types.nullOr lib.types.str;
+                          default = null;
+                        };
+
+                        action = lib.mkOption {
+                          type = lib.types.nullOr lib.types.str;
+                          default = null;
+                        };
+                      };
+                    }
+                  );
+                };
+              };
+            }
           ];
+
+          caden.reinstall = {
+            # enable = true;
+
+            gates = {
+              enable-aspect-nixos-init = {
+                assertion = config.system.nixos-init.enable or false;
+                description = "nixos-init perlless activation and the /etc overlay are off.";
+                action = "Add `caden.core.nixos-init` to this host's aspect includes (clean install only).";
+              };
+
+              update-state-versions = {
+                assertion = lib.mkDefault (
+                  config.system.stateVersion == config.system.nixos.release
+                  && lib.all (user: user.home.stateVersion == config.system.nixos.release) (
+                    lib.attrValues config.home-manager.users
+                  )
+                );
+                description = "`system.stateVersion` and all `home.stateVersion`s match the nixpkgs release version.";
+                action = "Bump `system.stateVersion` and `home.stateVersion` to ${config.system.nixos.release}.";
+              };
+            };
+          };
+
+          assertions = lib.mapAttrsToList (name: gate: {
+            assertion = !config.caden.reinstall.enable || gate.assertion;
+            message = ''
+
+              Fresh-install gate "${name}" not satisfied on ${config.networking.hostName}:
+                ${gate.description}
+                Do this: ${gate.action}
+
+            '';
+          }) config.caden.reinstall.gates;
 
           home-manager = {
             useGlobalPkgs = true;
