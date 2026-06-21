@@ -5,7 +5,7 @@
 }:
 {
   imports = [
-    (inputs.den.namespace "caden" true)
+    (inputs.den.namespace "caden" false)
   ];
 
   den = {

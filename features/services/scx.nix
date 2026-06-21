@@ -22,9 +22,7 @@ _: {
           {
             services.scx = {
               enable = true;
-            }
-            // lib.optionalAttrs (host.caden.services.scx.scheduler != null) {
-              scheduler = host.caden.services.scx.scheduler;
+              scheduler = lib.mkIf (host.caden.services.scx.scheduler != null) host.caden.services.scx.scheduler;
             };
           };
       };
