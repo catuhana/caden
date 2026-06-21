@@ -8,17 +8,7 @@
     x86_64-linux = {
       MateBookD14 = {
         users.tuhana = {
-          caden.gnome = {
-            shell = {
-              extensions = {
-                blur-my-shell.enable = true;
-                caffeine.enable = true;
-                appindicator.enable = true;
-              };
-
-              settings.appearance.accent-colour = "purple";
-            };
-          };
+          caden.gnome.shell.settings.appearance.accent-colour = "purple";
         };
       };
     };
@@ -59,25 +49,33 @@
         ];
       };
 
-      homeManager = _: {
-        programs.git = {
-          settings = {
-            init.defaultBranch = "main";
-            user = {
-              name = "tuhana";
-              email = "tuhana.cat+git@gmail.com";
+      homeManager =
+        { pkgs, ... }:
+        {
+          caden.gnome.shell.extensions = with pkgs.gnomeExtensions; [
+            blur-my-shell
+            caffeine
+            appindicator
+          ];
+
+          programs.git = {
+            settings = {
+              init.defaultBranch = "main";
+              user = {
+                name = "tuhana";
+                email = "tuhana.cat+git@gmail.com";
+              };
+            };
+
+            signing = {
+              key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRxlolhp8bTNWcjkPz/Ib3jeru3r3URp3QGAY/meoww meow";
+              signByDefault = true;
+              format = "ssh";
             };
           };
 
-          signing = {
-            key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRxlolhp8bTNWcjkPz/Ib3jeru3r3URp3QGAY/meoww meow";
-            signByDefault = true;
-            format = "ssh";
-          };
+          home.stateVersion = "26.05";
         };
-
-        home.stateVersion = "26.05";
-      };
     };
   };
 }

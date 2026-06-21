@@ -33,11 +33,13 @@ _: {
           ];
 
           overrides = {
+            # Allow Chrome to create PWAs.
             "com.google.Chrome".Context.filesystems = [
               "~/.local/share/applications:create"
               "~/.local/share/icons:create"
             ];
 
+            # Do not store and leak the password store as plain text.
             "org.signal.Signal".Environment.SIGNAL_PASSWORD_STORE = "gnome-libsecret";
           };
         };

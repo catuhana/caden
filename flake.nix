@@ -29,6 +29,8 @@
   outputs =
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = inputs.nixpkgs.lib.systems.flakeExposed;
+
       imports = [
         inputs.den.flakeModule
         ./den.nix
@@ -40,13 +42,10 @@
         ])
       ];
 
-      systems = inputs.nixpkgs.lib.systems.flakeExposed;
-
       perSystem =
         { pkgs, ... }:
         {
           devShells.default = import ./devshell.nix { inherit pkgs; };
-
           formatter = import ./formatter.nix { inherit pkgs; };
         };
     };
