@@ -7,9 +7,7 @@
   den.hosts = {
     x86_64-linux = {
       MateBookD14 = {
-        users.tuhana = {
-          caden.gnome.shell.settings.appearance.accent-colour = "purple";
-        };
+        users.tuhana = { };
       };
     };
   };
@@ -52,11 +50,14 @@
       homeManager =
         { pkgs, ... }:
         {
-          caden.gnome.shell.extensions = with pkgs.gnomeExtensions; [
-            blur-my-shell
-            caffeine
-            appindicator
-          ];
+          programs.gnome-shell.extensions = map (package: { inherit package; }) (
+            with pkgs.gnomeExtensions;
+            [
+              blur-my-shell
+              caffeine
+              appindicator
+            ]
+          );
 
           programs.git = {
             settings = {
