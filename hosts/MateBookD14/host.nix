@@ -25,6 +25,8 @@
 
         caden.core.documentation
 
+        caden.core.hardware
+
         caden.core.locale
 
         caden.core.networking.resolved
