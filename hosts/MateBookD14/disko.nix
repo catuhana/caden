@@ -1,84 +1,90 @@
 _: {
-  disko.devices = {
-    disk = {
-      main = {
-        device = "/dev/nvme0n1";
-        type = "disk";
-
-        content = {
-          type = "gpt";
-
-          partitions = {
-            esp = {
-              name = "boot";
-              type = "EF00";
-              size = "1G";
+  den.aspects = {
+    MateBookD14 = {
+      nixos = _: {
+        disko.devices = {
+          disk = {
+            main = {
+              device = "/dev/nvme0n1";
+              type = "disk";
 
               content = {
-                type = "filesystem";
-                format = "vfat";
+                type = "gpt";
 
-                mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
-              };
-            };
+                partitions = {
+                  esp = {
+                    name = "boot";
+                    type = "EF00";
+                    size = "1G";
 
-            luks = {
-              name = "luks";
-              size = "100%";
+                    content = {
+                      type = "filesystem";
+                      format = "vfat";
 
-              content = {
-                name = "cryptroot";
-                type = "luks";
+                      mountpoint = "/boot";
+                      mountOptions = [ "umask=0077" ];
+                    };
+                  };
 
-                settings = {
-                  allowDiscards = true;
-                  bypassWorkqueues = true;
-                  crypttabExtraOpts = [ "tpm2-device=auto" ];
-                };
+                  luks = {
+                    name = "luks";
+                    size = "100%";
 
-                content = {
-                  type = "lvm_pv";
-                  vg = "system";
+                    content = {
+                      name = "cryptroot";
+                      type = "luks";
+
+                      settings = {
+                        allowDiscards = true;
+                        bypassWorkqueues = true;
+                        crypttabExtraOpts = [ "tpm2-device=auto" ];
+                      };
+
+                      content = {
+                        type = "lvm_pv";
+                        vg = "system";
+                      };
+                    };
+                  };
                 };
               };
             };
           };
-        };
-      };
-    };
 
-    lvm_vg = {
-      system = {
-        type = "lvm_vg";
+          lvm_vg = {
+            system = {
+              type = "lvm_vg";
 
-        lvs = {
-          swap = {
-            size = "20G";
-            content = {
-              type = "swap";
-              resumeDevice = true;
-            };
-          };
-
-          root = {
-            size = "100%";
-            content = {
-              type = "btrfs";
-              extraArgs = [ "-f" ];
-
-              subvolumes = {
-                "@" = {
-                  mountpoint = "/";
-                  mountOptions = [
-                    "compress=zstd"
-                  ];
+              lvs = {
+                swap = {
+                  size = "20G";
+                  content = {
+                    type = "swap";
+                    resumeDevice = true;
+                  };
                 };
-                "@home" = {
-                  mountpoint = "/home";
-                  mountOptions = [
-                    "compress=zstd"
-                  ];
+
+                root = {
+                  size = "100%";
+                  content = {
+                    type = "btrfs";
+                    extraArgs = [ "-f" ];
+
+                    subvolumes = {
+                      "@" = {
+                        mountpoint = "/";
+                        mountOptions = [
+                          "compress=zstd"
+                        ];
+                      };
+                      "@home" = {
+                        mountpoint = "/home";
+                        mountOptions = [
+                          "compress=zstd"
+                        ];
+                      };
+                    };
+                  };
                 };
               };
             };

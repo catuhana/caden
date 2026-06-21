@@ -8,11 +8,14 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    import-tree.url = "github:denful/import-tree";
+    den.url = "github:denful/den";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,20 +28,19 @@
 
   outputs =
     inputs:
-    let
-      cadenLib = import ./lib { inherit (inputs.nixpkgs) lib; };
-    in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.den.flakeModule
+        ./den.nix
+
+        (inputs.import-tree [
+          ./features
+          ./hosts
+          ./users
+        ])
+      ];
+
       systems = inputs.nixpkgs.lib.systems.flakeExposed;
-
-      flake.nixosConfigurations.MateBookD14 = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs cadenLib; };
-
-        modules = [
-          ./modules/nixos/common.nix
-          ./hosts/MateBookD14/configuration.nix
-        ];
-      };
 
       perSystem =
         { pkgs, ... }:
