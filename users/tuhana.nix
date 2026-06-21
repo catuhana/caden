@@ -15,6 +15,9 @@
   den.aspects = {
     tuhana = {
       includes = [
+        den.batteries.primary-user
+        (den.batteries.user-shell "bash")
+
         caden.gnome.shell
 
         caden.programs.direnv
@@ -24,17 +27,7 @@
         caden.programs.vscode
 
         caden.services.flatpak
-      ]
-      ++ (
-        builtins.attrValues {
-          inherit (den.batteries)
-            primary-user
-            ;
-        }
-        ++ [
-          (den.batteries.user-shell "bash")
-        ]
-      );
+      ];
 
       user = _: {
         description = "Tuhana GAYRETLİ";

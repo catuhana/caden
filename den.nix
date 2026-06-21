@@ -10,12 +10,10 @@
 
   den = {
     default = {
-      includes = builtins.attrValues {
-        inherit (den.batteries)
-          hostname
-          define-user
-          ;
-      };
+      includes = [
+        den.batteries.hostname
+        den.batteries.primary-user
+      ];
 
       os = _: {
         nixpkgs.config.allowUnfree = true;
