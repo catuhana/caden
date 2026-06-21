@@ -18,8 +18,6 @@
         den.batteries.primary-user
         (den.batteries.user-shell "bash")
 
-        caden.gnome.shell
-
         caden.programs.direnv
         caden.programs.gh
         caden.programs.git

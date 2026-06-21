@@ -27,19 +27,15 @@
 
         caden.core.hardware
 
-        caden.core.locale
-
         caden.core.networking.resolved
         caden.core.networking.resolved.mdns
         caden.core.networking.dns.cloudflare
 
-        caden.core.security.apparmor
         caden.core.security.tpm2
 
         caden.gnome
         caden.programs.gamemode
         caden.programs.gamescope
-        caden.programs.nix-ld
 
         caden.services.bluetooth
         caden.services.flatpak
