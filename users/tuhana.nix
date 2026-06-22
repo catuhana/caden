@@ -42,6 +42,8 @@
       ];
 
       user = _: {
+        initialPassword = "meowmrrp";
+
         description = "Tuhana GAYRETLİ";
 
         openssh.authorizedKeys.keys = [
@@ -51,13 +53,24 @@
       };
 
       homeManager =
+        { pkgs, ... }:
         {
-          config,
-          lib,
-          pkgs,
-          ...
-        }:
-        {
+          # FIXME: Move this to GNOME aspect since it is GNOME-specific,
+          # or figure out a way to enable this only when GNOME aspect is
+          # enabled. Why I removed it from the aspect in the first place
+          # is that it's a user-specific thing. I may be stupid, and I am,
+          # and I still don't get how I should manage those things. I'm
+          # getting tired. I really want to like NixOS but some stuff just
+          # tickles a part of my stupid brain. But I also like NixOS, so
+          # I guess I will. I don't fucking know at this point. I just know
+          # that I want to have a fully declarative setup, but my stupid
+          # perfectionist brain just can't decide what the fuck to do.
+          # Whatever. I hope I won't end up installing Windows. I really
+          # don't want to. Or I guess I'll just install ParticleOS or
+          # GNOME OS, which are, in my opinion, how a distribution should
+          # be. Even the LLMs seem to suck at designing something that
+          # fits in my brain that I myself can't design. I'm so fucking
+          # lost. Whatever.
           programs.gnome-shell.extensions = map (package: { inherit package; }) (
             with pkgs.gnomeExtensions;
             [
@@ -70,6 +83,7 @@
           programs.git = {
             settings = {
               init.defaultBranch = "main";
+
               user = {
                 name = "tuhana";
                 email = "tuhana.cat+git@gmail.com";
@@ -80,18 +94,6 @@
               key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRxlolhp8bTNWcjkPz/Ib3jeru3r3URp3QGAY/meoww meow";
               signByDefault = true;
               format = "ssh";
-            };
-          };
-
-          caden.reinstall = {
-            enable = true;
-
-            gates = {
-              update-state-version = {
-                assertion = lib.mkDefault (config.home.stateVersion == lib.trivial.release);
-                description = "`home.stateVersion` should match the current release";
-                action = "bump `home.stateVersion` to ${lib.trivial.release}";
-              };
             };
           };
 

@@ -16,6 +16,8 @@
               device = "/dev/nvme0n1";
               type = "disk";
 
+              imageSize = "32G";
+
               content = {
                 type = "gpt";
 

@@ -34,6 +34,7 @@
         caden.core.security.tpm2
 
         caden.gnome
+
         caden.programs.gamemode
         caden.programs.steam
 
@@ -46,46 +47,44 @@
         caden.services.usbmuxd
       ];
 
-      nixos =
-        { config, lib, ... }:
-        {
-          sops.secrets."users/tuhana/hashed-password".neededForUsers = true;
-          users.users.tuhana.hashedPasswordFile = config.sops.secrets."users/tuhana/hashed-password".path;
+      os = _: {
+        # FIXME: There should be a better place to put this to.
+        virtualisation = {
+          vmVariantWithDisko.virtualisation = {
+            cores = 16;
 
-          caden.reinstall = {
-            enable = true;
+            memorySize = 8 * 1024;
 
-            gates = {
-              enable-aspect-nixos-init = {
-                assertion = config.system.nixos-init.enable or false;
-                description = "`caden.core.nixos-init` should be enabled";
-              };
-
-              update-state-version = {
-                assertion = lib.mkDefault (config.system.stateVersion == config.system.nixos.release);
-                description = "`system.stateVersion` should match the current release";
-                action = "bump `system.stateVersion` to ${config.system.nixos.release}";
-              };
-            };
-          };
-
-          systemd.services.raise-power-limits = {
-            description = "Raise PL1 to the firmware PPCC maximum, as Intel DTT does on Windows";
-            wantedBy = [
-              "multi-user.target"
-              "suspend.target"
+            qemu.options = [
+              "-device virtio-vga-gl"
+              "-display gtk,gl=on,show-cursor=on"
+              "-cpu host"
             ];
-            after = [ "suspend.target" ];
-            before = [ "thermald.service" ];
-            serviceConfig.Type = "oneshot";
-            script = ''
-              echo 40000000 > /sys/class/powercap/intel-rapl-mmio:0/constraint_0_power_limit_uw
-              echo 40000000 > /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw
-            '';
           };
-
-          system.stateVersion = "26.11";
         };
+      };
+
+      nixos = _: {
+        systemd.services.raise-power-limits = {
+          description = "Raise PL1 to the firmware PPCC maximum, as Intel DTT does on Windows";
+
+          wantedBy = [
+            "multi-user.target"
+            "suspend.target"
+          ];
+          after = [ "suspend.target" ];
+          before = [ "thermald.service" ];
+
+          serviceConfig.Type = "oneshot";
+
+          script = ''
+            echo 40000000 > /sys/class/powercap/intel-rapl-mmio:0/constraint_0_power_limit_uw
+            echo 40000000 > /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw
+          '';
+        };
+
+        system.stateVersion = "26.11";
+      };
     };
   };
 }
