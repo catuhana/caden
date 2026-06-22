@@ -45,12 +45,34 @@
       ];
 
       nixos =
-        { config, ... }:
+        { config, lib, ... }:
         {
           system.stateVersion = "26.05";
 
           sops.secrets."users/tuhana/hashed-password".neededForUsers = true;
           users.users.tuhana.hashedPasswordFile = config.sops.secrets."users/tuhana/hashed-password".path;
+
+          caden.reinstall = {
+            # enable = true;
+
+            gates = {
+              enable-aspect-nixos-init = {
+                assertion = config.system.nixos-init.enable or false;
+                description = "`caden.core.nixos-init` should be enabled";
+              };
+
+              update-state-versions = {
+                assertion = lib.mkDefault (
+                  config.system.stateVersion == config.system.nixos.release
+                  && lib.all (user: user.home.stateVersion == config.system.nixos.release) (
+                    lib.attrValues config.home-manager.users
+                  )
+                );
+                description = "`{system,home}.stateVersion` should match the current release";
+                action = "bump `{system,home}.stateVersion` to ${config.system.nixos.release}";
+              };
+            };
+          };
 
           systemd.services.raise-power-limits = {
             description = "Raise PL1 to the firmware PPCC maximum, as Intel DTT does on Windows";
