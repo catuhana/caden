@@ -33,7 +33,7 @@
 
         caden.gnome
         caden.programs.gamemode
-        caden.programs.gamescope
+        caden.programs.steam
 
         caden.services.bluetooth
         caden.services.flatpak

@@ -1,6 +1,6 @@
 _: {
   caden.programs = {
-    gamescope = {
+    steam = {
       nixos =
         { pkgs, ... }:
         {
