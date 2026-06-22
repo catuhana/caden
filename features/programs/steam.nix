@@ -11,7 +11,10 @@ _: {
               enable = true;
               gamescopeSession.enable = true;
 
-              extraPackages = [ pkgs.mangohud ];
+              extraPackages = [
+                pkgs.mangohud
+                pkgs.gamemode
+              ];
               extraCompatPackages = [ pkgs.proton-ge-bin ];
 
               remotePlay.openFirewall = true;
@@ -19,6 +22,10 @@ _: {
             };
           };
         };
+
+      user = _: {
+        extraGroups = [ "gamemode" ];
+      };
     };
   };
 }

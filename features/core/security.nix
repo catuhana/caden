@@ -10,7 +10,7 @@ _: {
           };
         };
 
-        user = {
+        user = _: {
           extraGroups = [ "tss" ];
         };
       };
