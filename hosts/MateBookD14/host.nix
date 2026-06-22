@@ -25,6 +25,8 @@
 
         caden.core.documentation
 
+        caden.core.nixos-init
+
         caden.core.networking.resolved
         caden.core.networking.resolved.mdns
         caden.core.networking.dns.cloudflare
@@ -47,13 +49,11 @@
       nixos =
         { config, lib, ... }:
         {
-          system.stateVersion = "26.05";
-
           sops.secrets."users/tuhana/hashed-password".neededForUsers = true;
           users.users.tuhana.hashedPasswordFile = config.sops.secrets."users/tuhana/hashed-password".path;
 
           caden.reinstall = {
-            # enable = true;
+            enable = true;
 
             gates = {
               enable-aspect-nixos-init = {
@@ -83,6 +83,8 @@
               echo 40000000 > /sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw
             '';
           };
+
+          system.stateVersion = "26.11";
         };
     };
   };

@@ -83,10 +83,8 @@
             };
           };
 
-          home.stateVersion = "26.05";
-
           caden.reinstall = {
-            # enable = true;
+            enable = true;
 
             gates = {
               update-state-version = {
@@ -96,6 +94,8 @@
               };
             };
           };
+
+          home.stateVersion = "26.11";
         };
     };
   };

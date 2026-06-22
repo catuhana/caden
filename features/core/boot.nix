@@ -46,17 +46,19 @@
       };
 
       silent-boot = {
-        nixos = _: {
-          boot = {
-            kernelParams = [
-              "quiet"
-              "udev.log_level=3"
-            ];
+        nixos =
+          { lib, ... }:
+          {
+            boot = {
+              kernelParams = [
+                "quiet"
+                "udev.log_level=3"
+              ];
 
-            consoleLogLevel = 0;
-            initrd.verbose = false;
+              consoleLogLevel = lib.mkDefault 0;
+              initrd.verbose = lib.mkDefault false;
+            };
           };
-        };
       };
 
       plymouth = {
