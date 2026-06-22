@@ -25,8 +25,6 @@
 
         caden.core.documentation
 
-        caden.core.hardware
-
         caden.core.networking.resolved
         caden.core.networking.resolved.mdns
         caden.core.networking.dns.cloudflare
