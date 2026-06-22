@@ -1,4 +1,5 @@
-_: {
+{ inputs, ... }:
+{
   caden.services = {
     flatpak = {
       nixos = _: {
@@ -6,6 +7,8 @@ _: {
       };
 
       homeManager = _: {
+        imports = [ inputs.nix-flatpak.homeManagerModules.nix-flatpak ];
+
         services.flatpak = {
           enable = true;
 

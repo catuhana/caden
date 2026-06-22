@@ -1,6 +1,7 @@
 {
   inputs,
   den,
+  caden,
   ...
 }:
 {
@@ -13,6 +14,8 @@
       includes = [
         den.batteries.hostname
         den.batteries.primary-user
+
+        caden.core.sops
       ];
 
       os = _: {
@@ -28,9 +31,6 @@
         }:
         {
           imports = [
-            inputs.disko.nixosModules.default
-            inputs.lanzaboote.nixosModules.lanzaboote
-
             # FIXME: Put this in a better place after re-install.
             {
               options.caden.reinstall = {
@@ -98,8 +98,6 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-
-            sharedModules = [ inputs.nix-flatpak.homeManagerModules.nix-flatpak ];
           };
 
           nix = {

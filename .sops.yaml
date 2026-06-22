@@ -1,0 +1,17 @@
+keys:
+  hosts:
+    - &MateBookD14 age19u72f9cddr52g7ep6xhwc77zxckrphr75mjxfgxlkt4qvt4trdes3uw6uu
+  users:
+    - &tuhana age1r09c5c8jz8840xawghc5jl5q5xr980hpf60vg8wf9ckcpeas7sysf5d8m8
+
+creation_rules:
+  - path_regex: secrets/hosts/MateBookD14\.yaml$
+    key_groups:
+      - age:
+          - *MateBookD14
+          - *tuhana
+
+  - path_regex: secrets/users/tuhana\.yaml$
+    key_groups:
+      - age:
+          - *tuhana

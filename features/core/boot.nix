@@ -1,4 +1,5 @@
-_: {
+{ inputs, ... }:
+{
   caden.core = {
     boot = {
       nixos =
@@ -26,6 +27,8 @@ _: {
         nixos =
           { pkgs, ... }:
           {
+            imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
+
             environment.systemPackages = [ pkgs.sbctl ];
 
             boot = {

@@ -1,7 +1,10 @@
-_: {
+{ inputs, ... }:
+{
   den.aspects = {
     MateBookD14 = {
       nixos = _: {
+        imports = [ inputs.disko.nixosModules.default ];
+
         disko.devices = {
           disk = {
             main = {
