@@ -20,8 +20,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # lanzaboote PR #456 — XBOOTLDR / split ESP+/boot support (unmerged).
+    # Pinned to the PR head commit (sarunint:xbootldr), fetched via the upstream repo path.
     lanzaboote = {
-      url = "github:nix-community/lanzaboote";
+      url = "github:nix-community/lanzaboote/8582371c391b345b158d08942ef459f4251e1c01";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
