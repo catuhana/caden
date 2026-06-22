@@ -51,7 +51,12 @@
       };
 
       homeManager =
-        { pkgs, ... }:
+        {
+          config,
+          lib,
+          pkgs,
+          ...
+        }:
         {
           programs.gnome-shell.extensions = map (package: { inherit package; }) (
             with pkgs.gnomeExtensions;
@@ -79,6 +84,18 @@
           };
 
           home.stateVersion = "26.05";
+
+          caden.reinstall = {
+            # enable = true;
+
+            gates = {
+              update-state-version = {
+                assertion = lib.mkDefault (config.home.stateVersion == lib.trivial.release);
+                description = "`home.stateVersion` should match the current release";
+                action = "bump `home.stateVersion` to ${lib.trivial.release}";
+              };
+            };
+          };
         };
     };
   };

@@ -61,15 +61,10 @@
                 description = "`caden.core.nixos-init` should be enabled";
               };
 
-              update-state-versions = {
-                assertion = lib.mkDefault (
-                  config.system.stateVersion == config.system.nixos.release
-                  && lib.all (user: user.home.stateVersion == config.system.nixos.release) (
-                    lib.attrValues config.home-manager.users
-                  )
-                );
-                description = "`{system,home}.stateVersion` should match the current release";
-                action = "bump `{system,home}.stateVersion` to ${config.system.nixos.release}";
+              update-state-version = {
+                assertion = lib.mkDefault (config.system.stateVersion == config.system.nixos.release);
+                description = "`system.stateVersion` should match the current release";
+                action = "bump `system.stateVersion` to ${config.system.nixos.release}";
               };
             };
           };
