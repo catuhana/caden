@@ -32,7 +32,7 @@
 
         caden.core.security.tpm2
 
-        caden.desktops.plasma
+        caden.desktops.gnome
 
         caden.programs.gamemode
 
