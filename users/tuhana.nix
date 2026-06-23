@@ -38,7 +38,7 @@
         caden.programs.flatpak.protonvpn
         caden.programs.flatpak.signal
 
-        (den.lib.policy.when ({ host, ... }: host.hasAspect caden.gnome) caden.tuhana.gnome)
+        (den.lib.policy.when ({ host, ... }: host.hasAspect caden.desktops.gnome) caden.tuhana.gnome)
       ];
 
       user = _: {
