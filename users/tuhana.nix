@@ -36,7 +36,6 @@
         caden.programs.flatpak.picard
         caden.programs.flatpak.plume-impactor
         caden.programs.flatpak.protonvpn
-        caden.programs.flatpak.signal
 
         (den.lib.policy.when ({ host, ... }: host.hasAspect caden.desktops.gnome) caden.tuhana.gnome)
       ];
