@@ -16,6 +16,7 @@
         den.batteries.primary-user
         (den.batteries.user-shell "bash")
 
+        caden.programs.chrome-dev
         caden.programs.direnv
         caden.programs.gh
         caden.programs.git
@@ -26,7 +27,6 @@
 
         caden.programs.flatpak.anydesk
         caden.programs.flatpak.bottles
-        caden.programs.flatpak.chrome
         caden.programs.flatpak.fractal
         caden.programs.flatpak.galaxy-buds-client
         caden.programs.flatpak.libreoffice
