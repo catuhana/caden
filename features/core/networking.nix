@@ -29,12 +29,12 @@ _: {
       mdns = {
         nixos =
           {
-            lib,
             config,
             ...
           }:
           {
-            services.resolved.settings.Resolve.MulticastDNS = lib.mkIf (!config.services.avahi.enable) true;
+            services.resolved.settings.Resolve.MulticastDNS =
+              if config.services.avahi.enable then "resolve" else true;
           };
       };
     };
