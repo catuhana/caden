@@ -7,8 +7,10 @@ _: {
           boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
           hardware = {
-            enableAllFirmware = true;
-            cpu.intel.updateMicrocode = true;
+            facter = {
+              enable = true;
+              reportPath = ./facter.json;
+            };
 
             graphics.extraPackages = [
               pkgs.intel-media-driver
