@@ -27,9 +27,8 @@
 
         caden.core.nixos-init
 
-        caden.core.networking.resolved
-        caden.core.networking.resolved.mdns
-        caden.core.networking.dns.cloudflare
+        caden.core.networking
+        caden.core.networking.mdns
 
         caden.core.security.tpm2
 

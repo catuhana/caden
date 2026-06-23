@@ -1,46 +1,41 @@
 _: {
   caden.core = {
     networking = {
-      dns = {
-        cloudflare = {
-          nixos = _: {
-            networking.nameservers = [
-              "1.1.1.1"
-              "1.0.0.1"
-              "2606:4700:4700::1111"
-              "2606:4700:4700::1001"
-            ];
+      nixos = _: {
+        networking = {
+          useDHCP = false;
 
-            services.resolved.settings.Resolve.DNS = [
-              "1.1.1.1#cloudflare-dns.com"
-              "1.0.0.1#cloudflare-dns.com"
-              "2606:4700:4700::1111#cloudflare-dns.com"
-              "2606:4700:4700::1001#cloudflare-dns.com"
-            ];
+          networkmanager.dns = "systemd-resolved";
+
+          nameservers = [
+            "1.1.1.1#cloudflare-dns.com"
+            "1.0.0.1#cloudflare-dns.com"
+            "2606:4700:4700::1111#cloudflare-dns.com"
+            "2606:4700:4700::1001#cloudflare-dns.com"
+          ];
+        };
+
+        services.resolved = {
+          enable = true;
+
+          settings.Resolve = {
+            DNSOverTLS = "opportunistic";
+            Domains = [ "~." ];
+            LLMNR = false;
           };
         };
       };
 
-      resolved = {
-        nixos = _: {
-          networking.networkmanager.dns = "systemd-resolved";
-
-          services.resolved = {
-            enable = true;
-
-            settings.Resolve = {
-              Domains = [ "~." ];
-              DNSOverTLS = "opportunistic";
-              LLMNR = false;
-            };
+      mdns = {
+        nixos =
+          {
+            lib,
+            config,
+            ...
+          }:
+          {
+            services.resolved.settings.Resolve.MulticastDNS = lib.mkIf (!config.services.avahi.enable) true;
           };
-        };
-
-        mdns = {
-          nixos = _: {
-            services.resolved.settings.Resolve.MulticastDNS = true;
-          };
-        };
       };
     };
   };
