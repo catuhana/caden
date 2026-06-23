@@ -3,10 +3,6 @@ _: {
     networking = {
       nixos = _: {
         networking = {
-          useDHCP = false;
-
-          networkmanager.dns = "systemd-resolved";
-
           nameservers = [
             "1.1.1.1#cloudflare-dns.com"
             "1.0.0.1#cloudflare-dns.com"
