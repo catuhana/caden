@@ -33,7 +33,7 @@
 
         caden.core.security.tpm2
 
-        caden.gnome
+        caden.desktops.gnome
 
         caden.programs.gamemode
         caden.programs.steam

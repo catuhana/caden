@@ -1,5 +1,5 @@
 _: {
-  caden.gnome = {
+  caden.desktops.gnome = {
     nixos = _: {
       services = {
         desktopManager.gnome.enable = true;
