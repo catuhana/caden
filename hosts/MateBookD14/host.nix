@@ -16,8 +16,6 @@
   den.aspects = {
     MateBookD14 = {
       includes = [
-        caden.core.audio
-
         caden.core.boot
         caden.core.boot.secure-boot
         caden.core.boot.silent-boot
