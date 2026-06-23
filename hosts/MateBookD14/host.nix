@@ -36,7 +36,6 @@
         caden.desktops.plasma
 
         caden.programs.gamemode
-        caden.programs.steam
 
         caden.services.bluetooth
         caden.services.flatpak

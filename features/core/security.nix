@@ -10,8 +10,10 @@ _: {
           };
         };
 
-        user = _: {
-          extraGroups = [ "tss" ];
+        provides.to-users = {
+          user = _: {
+            extraGroups = [ "tss" ];
+          };
         };
       };
     };
