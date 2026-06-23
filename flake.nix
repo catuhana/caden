@@ -11,19 +11,22 @@
     import-tree.url = "github:denful/import-tree";
     den.url = "github:denful/den";
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    lanzaboote = {
+      # https://github.com/nix-community/lanzaboote/pull/456 - XBOOTLDR support.
+      url = "github:nix-community/lanzaboote/8582371c391b345b158d08942ef459f4251e1c01";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # lanzaboote PR #456 — XBOOTLDR / split ESP+/boot support (unmerged).
-    # Pinned to the PR head commit (sarunint:xbootldr), fetched via the upstream repo path.
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/8582371c391b345b158d08942ef459f4251e1c01";
+    browser-previews = {
+      url = "github:nix-community/browser-previews";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
