@@ -6,9 +6,9 @@
   den.hosts = {
     x86_64-linux = {
       MateBookD14 = {
-        caden = {
-          services.scx.scheduler = "scx_bpfland";
-        };
+        scx.scheduler = "scx_bpfland";
+
+        users.tuhana = { };
       };
     };
   };
@@ -46,23 +46,6 @@
         caden.services.userborn
         caden.services.usbmuxd
       ];
-
-      os = _: {
-        # FIXME: There should be a better place to put this to.
-        virtualisation = {
-          vmVariantWithDisko.virtualisation = {
-            cores = 16;
-
-            memorySize = 8 * 1024;
-
-            qemu.options = [
-              "-device virtio-vga-gl"
-              "-display gtk,gl=on,show-cursor=on"
-              "-cpu host"
-            ];
-          };
-        };
-      };
 
       nixos = _: {
         systemd.services.raise-power-limits = {

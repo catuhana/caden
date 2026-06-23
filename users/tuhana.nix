@@ -6,9 +6,7 @@
 {
   den.hosts = {
     x86_64-linux = {
-      MateBookD14 = {
-        users.tuhana = { };
-      };
+      MateBookD14 = { };
     };
   };
 
@@ -39,6 +37,8 @@
         caden.programs.flatpak.plume-impactor
         caden.programs.flatpak.protonvpn
         caden.programs.flatpak.signal
+
+        (den.lib.policy.when ({ host, ... }: host.hasAspect caden.gnome) caden.tuhana.gnome)
       ];
 
       user = _: {
@@ -52,52 +52,50 @@
         ];
       };
 
-      homeManager =
-        { pkgs, ... }:
-        {
-          # FIXME: Move this to GNOME aspect since it is GNOME-specific,
-          # or figure out a way to enable this only when GNOME aspect is
-          # enabled. Why I removed it from the aspect in the first place
-          # is that it's a user-specific thing. I may be stupid, and I am,
-          # and I still don't get how I should manage those things. I'm
-          # getting tired. I really want to like NixOS but some stuff just
-          # tickles a part of my stupid brain. But I also like NixOS, so
-          # I guess I will. I don't fucking know at this point. I just know
-          # that I want to have a fully declarative setup, but my stupid
-          # perfectionist brain just can't decide what the fuck to do.
-          # Whatever. I hope I won't end up installing Windows. I really
-          # don't want to. Or I guess I'll just install ParticleOS or
-          # GNOME OS, which are, in my opinion, how a distribution should
-          # be. Even the LLMs seem to suck at designing something that
-          # fits in my brain that I myself can't design. I'm so fucking
-          # lost. Whatever.
-          programs.gnome-shell.extensions = map (package: { inherit package; }) (
-            with pkgs.gnomeExtensions;
-            [
-              blur-my-shell
-              caffeine
-              appindicator
-            ]
-          );
+      homeManager = _: {
+        programs.git = {
+          settings = {
+            init.defaultBranch = "main";
 
-          programs.git = {
-            settings = {
-              init.defaultBranch = "main";
-
-              user = {
-                name = "tuhana";
-                email = "tuhana.cat+git@gmail.com";
-              };
-            };
-
-            signing = {
-              key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRxlolhp8bTNWcjkPz/Ib3jeru3r3URp3QGAY/meoww meow";
-              signByDefault = true;
-              format = "ssh";
+            user = {
+              name = "tuhana";
+              email = "tuhana.cat+git@gmail.com";
             };
           };
 
-          home.stateVersion = "26.11";
+          signing = {
+            signByDefault = true;
+
+            format = "ssh";
+            key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRxlolhp8bTNWcjkPz/Ib3jeru3r3URp3QGAY/meoww meow";
+          };
+        };
+
+        home.stateVersion = "26.11";
+      };
+    };
+  };
+
+  caden.tuhana = {
+    gnome = _: {
+      homeManager =
+        {
+          pkgs,
+          ...
+        }:
+        {
+          programs.gnome-shell = {
+            enable = true;
+
+            extensions = map (package: { inherit package; }) (
+              with pkgs.gnomeExtensions;
+              [
+                blur-my-shell
+                caffeine
+                appindicator
+              ]
+            );
+          };
         };
     };
   };

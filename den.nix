@@ -12,8 +12,8 @@
   den = {
     default = {
       includes = [
+        den.batteries.define-user
         den.batteries.hostname
-        den.batteries.primary-user
 
         caden.core.reinstall
       ];
