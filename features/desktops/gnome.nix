@@ -35,8 +35,6 @@
         ];
 
         gnome.excludePackages = [
-          (pkgs.runCommandLocal "nixos-background-info" { } "mkdir $out")
-
           pkgs.gnome-disk-utility
           pkgs.gnome-tour
           pkgs.seahorse
