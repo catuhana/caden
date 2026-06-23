@@ -1,8 +1,11 @@
 _: {
-  caden.core = {
-    audio = {
-      nixos = _: {
-        services.pipewire = {
+  caden.desktops.common = {
+    nixos = _: {
+      services = {
+        printing.enable = true;
+        colord.enable = true;
+
+        pipewire = {
           enable = true;
 
           pulse.enable = true;
