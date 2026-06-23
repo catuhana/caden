@@ -10,6 +10,18 @@
           systemd-boot.xbootldrMountPoint = "/boot";
         };
 
+        virtualisation.vmVariantWithDisko.virtualisation = {
+          cores = 16;
+
+          memorySize = 8 * 1024;
+
+          qemu.options = [
+            "-device virtio-vga-gl"
+            "-display gtk,gl=on,show-cursor=on"
+            "-cpu host"
+          ];
+        };
+
         disko.devices = {
           disk = {
             main = {
@@ -60,7 +72,10 @@
 
                       settings = {
                         allowDiscards = true;
-                        crypttabExtraOpts = [ "tpm2-device=auto" ];
+                        crypttabExtraOpts = [
+                          "tpm2-device=auto"
+                          "tpm2-with-pin=yes"
+                        ];
                       };
 
                       content = {
@@ -80,7 +95,10 @@
                       settings = {
                         allowDiscards = true;
                         bypassWorkqueues = true;
-                        crypttabExtraOpts = [ "tpm2-device=auto" ];
+                        crypttabExtraOpts = [
+                          "tpm2-device=auto"
+                          "tpm2-with-pin=yes"
+                        ];
                       };
 
                       content = {
