@@ -1,4 +1,5 @@
 _: {
+  # TODO: Set up scx_loader.
   den.schema = {
     host =
       { lib, ... }:
