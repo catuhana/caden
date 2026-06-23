@@ -35,7 +35,6 @@
 
                 partitions = {
                   esp = {
-                    priority = 1;
                     type = "EF00";
                     size = "1G";
 
@@ -49,7 +48,6 @@
                   };
 
                   boot = {
-                    priority = 2;
                     type = "EA00";
                     size = "2G";
 
@@ -63,7 +61,6 @@
                   };
 
                   swap = {
-                    priority = 3;
                     size = "16G";
 
                     content = {
@@ -72,6 +69,7 @@
 
                       settings = {
                         allowDiscards = true;
+
                         crypttabExtraOpts = [
                           "tpm2-device=auto"
                           "tpm2-with-pin=yes"
@@ -95,6 +93,7 @@
                       settings = {
                         allowDiscards = true;
                         bypassWorkqueues = true;
+
                         crypttabExtraOpts = [
                           "tpm2-device=auto"
                           "tpm2-with-pin=yes"
