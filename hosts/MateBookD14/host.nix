@@ -6,6 +6,8 @@
   den.hosts = {
     x86_64-linux = {
       MateBookD14 = {
+        chassis = "laptop";
+
         scx.scheduler = "scx_bpfland";
 
         users.tuhana = { };
@@ -34,11 +36,8 @@
 
         caden.programs.gamemode
 
-        caden.services.bluetooth
         caden.services.flatpak
-        caden.services.openssh
         caden.services.scx
-        caden.services.thermald
         caden.services.userborn
         caden.services.usbmuxd
       ];
