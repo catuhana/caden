@@ -73,7 +73,6 @@
               trusted-users = [ "@wheel" ];
 
               use-cgroups = true;
-              use-xdg-base-directories = true;
 
               experimental-features = [
                 "nix-command"
