@@ -1,4 +1,5 @@
 {
+  caden,
   lib,
   ...
 }:
@@ -19,6 +20,10 @@ in
 
   den.aspects = {
     Tabby = {
+      includes = [
+        caden.chassis.wsl
+      ];
+
       nixos = _: {
         system.stateVersion = "26.11";
       };

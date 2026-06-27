@@ -21,7 +21,7 @@
         caden.programs.git
         caden.programs.msedit
 
-        (den.lib.policy.when ({ host, ... }: host.chassis == "laptop") (
+        (den.lib.policy.when ({ host, ... }: (host.desktop or null) != null) (
           _: den.lib.policy.include caden.tuhana.graphical
         ))
 

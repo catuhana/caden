@@ -6,8 +6,6 @@
   den.hosts = {
     x86_64-linux = {
       MateBookD14 = {
-        chassis = "laptop";
-
         desktop = "gnome";
 
         scx.scheduler = "scx_bpfland";
@@ -20,6 +18,8 @@
   den.aspects = {
     MateBookD14 = {
       includes = [
+        caden.chassis.laptop
+
         caden.core.boot
         caden.core.boot.secure-boot
         caden.core.boot.silent-boot
