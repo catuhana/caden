@@ -28,6 +28,7 @@
         caden.core.documentation
 
         caden.core.nixos-init
+        caden.core.etc-overlay
 
         caden.core.networking
         caden.core.networking.mdns

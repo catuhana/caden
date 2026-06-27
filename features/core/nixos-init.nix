@@ -1,11 +1,13 @@
-_: {
+{ caden, ... }:
+{
   caden.core = {
     nixos-init = {
+      includes = [
+        caden.core.etc-overlay
+      ];
+
       nixos = _: {
-        system = {
-          etc.overlay.enable = true;
-          nixos-init.enable = true;
-        };
+        system.nixos-init.enable = true;
       };
     };
   };
