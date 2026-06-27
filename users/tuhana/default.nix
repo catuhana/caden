@@ -16,28 +16,20 @@
         den.batteries.primary-user
         (den.batteries.user-shell "bash")
 
-        caden.services.flatpak
-
-        caden.programs.chrome-dev
         caden.programs.direnv
         caden.programs.gh
         caden.programs.git
         caden.programs.msedit
-        caden.programs.steam
-        caden.programs.vscode
-        caden.programs.flatpak.anydesk
-        caden.programs.flatpak.bottles
-        caden.programs.flatpak.fractal
-        caden.programs.flatpak.galaxy-buds-client
-        caden.programs.flatpak.libreoffice
-        caden.programs.flatpak.nicotine
-        caden.programs.flatpak.obs-studio
-        caden.programs.flatpak.obsidian
-        caden.programs.flatpak.picard
-        caden.programs.flatpak.plume-impactor
-        caden.programs.flatpak.protonvpn
 
-        (den.lib.policy.when ({ host, ... }: host.hasAspect caden.desktops.gnome) caden.tuhana.gnome)
+        (den.lib.policy.when ({ host, ... }: host.chassis == "laptop") (
+          _: den.lib.policy.include caden.tuhana.graphical
+        ))
+
+        # `host.desktop` is sadly a workaround...
+        # can't have this in `caden.tuhana.graphical` for some reason...
+        (den.lib.policy.when ({ host, ... }: (host.desktop or null) == "gnome") (
+          _: den.lib.policy.include caden.tuhana.gnome
+        ))
       ];
 
       user = _: {

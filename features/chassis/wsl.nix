@@ -1,0 +1,4 @@
+{ ... }:
+{
+  caden.chassis.wsl = { };
+}

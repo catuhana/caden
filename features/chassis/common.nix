@@ -2,6 +2,8 @@
 {
   caden.chassis.common = {
     includes = [
+      caden.core.kmscon
+
       caden.services.openssh
     ];
 

@@ -8,6 +8,8 @@
       MateBookD14 = {
         chassis = "laptop";
 
+        desktop = "gnome";
+
         scx.scheduler = "scx_bpfland";
 
         users.tuhana = { };
