@@ -3,9 +3,7 @@
   caden.chassis.wsl = {
     includes = [
       caden.core.documentation
-      caden.core.etc-overlay
-
-      caden.services.userborn
+      caden.programs.nix-ld
     ];
 
     nixos = _: {
