@@ -52,6 +52,8 @@
               name = "tuhana";
               email = "tuhana.cat+git@gmail.com";
             };
+
+            gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
           };
 
           signing = {
