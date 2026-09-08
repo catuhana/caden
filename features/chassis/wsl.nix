@@ -4,6 +4,7 @@
     includes = [
       caden.core.documentation
       caden.programs.nix-ld
+      caden.services.flatpak
     ];
   };
 }

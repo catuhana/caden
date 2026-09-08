@@ -2,9 +2,19 @@
 {
   caden.services = {
     flatpak = {
-      nixos = _: {
-        services.flatpak.enable = true;
-      };
+      nixos =
+        { pkgs, ... }:
+        {
+          services.flatpak.enable = true;
+
+          xdg.portal = {
+            enable = true;
+
+            extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+            config.common.default = [ "gtk" ];
+          };
+        };
 
       homeManager = _: {
         imports = [ inputs.nix-flatpak.homeManagerModules.nix-flatpak ];
