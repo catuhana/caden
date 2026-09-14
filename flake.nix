@@ -2,7 +2,7 @@
   description = "Cat's den.";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
 
     systems.url = "github:nix-systems/default";
     flake-parts = {
