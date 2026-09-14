@@ -1,5 +1,4 @@
-_:
-{
+_: {
   caden.services = {
     flatpak = {
       nixos =

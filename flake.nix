@@ -24,26 +24,24 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    browser-previews = {
-      url = "github:nix-community/browser-previews";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = inputs.nixpkgs.lib.systems.flakeExposed;
+    {
+      nixpkgs,
+      flake-parts,
+      import-tree,
+      den,
+      ...
+    }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = nixpkgs.lib.systems.flakeExposed;
 
       imports = [
-        inputs.den.flakeModule
+        den.flakeModule
         ./den.nix
 
-        (inputs.import-tree [
+        (import-tree [
           ./features
           ./hosts
           ./users
@@ -53,8 +51,18 @@
       perSystem =
         { pkgs, ... }:
         {
-          devShells = import ./devshell.nix { inherit pkgs; };
-          formatter = import ./formatter.nix { inherit pkgs; };
+          devShells = import ./devshell.nix {
+            inherit (pkgs)
+              mkShellNoCC
+              nixd
+              nixfmt
+              ;
+          };
+          formatter = import ./formatter.nix {
+            inherit (pkgs)
+              nixfmt-tree
+              ;
+          };
         };
     };
 }
