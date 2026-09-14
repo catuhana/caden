@@ -1,6 +1,8 @@
-_: {
+{ caden, ... }: {
   caden.programs = {
     steam = {
+      includes = [ caden.programs.gamemode ];
+
       nixos =
         { pkgs, ... }:
         {
@@ -11,21 +13,17 @@ _: {
               enable = true;
               gamescopeSession.enable = true;
 
+              extraCompatPackages = [ pkgs.proton-ge-bin ];
               extraPackages = [
                 pkgs.mangohud
                 pkgs.gamemode
               ];
-              extraCompatPackages = [ pkgs.proton-ge-bin ];
 
               remotePlay.openFirewall = true;
               dedicatedServer.openFirewall = true;
             };
           };
         };
-
-      user = _: {
-        extraGroups = [ "gamemode" ];
-      };
     };
   };
 }

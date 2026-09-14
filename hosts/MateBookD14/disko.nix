@@ -1,3 +1,4 @@
+# Replace this with `systemd-repart`.
 { inputs, ... }:
 {
   den.aspects = {

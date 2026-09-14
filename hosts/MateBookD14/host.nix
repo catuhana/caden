@@ -23,8 +23,6 @@
         caden.core.boot.silent-boot
         caden.core.boot.plymouth
 
-        caden.core.documentation
-
         caden.core.nixos-init
         caden.core.etc-overlay
 
@@ -37,7 +35,6 @@
 
         caden.programs.gamemode
 
-        caden.services.flatpak
         caden.services.scx
         caden.services.userborn
         caden.services.usbmuxd

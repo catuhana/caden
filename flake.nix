@@ -4,10 +4,12 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
 
+    systems.url = "github:nix-systems/default";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+
     import-tree.url = "github:denful/import-tree";
     den.url = "github:denful/den";
 
@@ -30,12 +32,13 @@
     {
       nixpkgs,
       flake-parts,
+      systems,
       import-tree,
       den,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = nixpkgs.lib.systems.flakeExposed;
+      systems = import systems;
 
       imports = [
         den.flakeModule

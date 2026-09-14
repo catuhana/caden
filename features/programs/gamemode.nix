@@ -6,6 +6,10 @@ _: {
           enable = true;
         };
       };
+
+      user = _: {
+        extraGroups = [ "gamemode" ];
+      };
     };
   };
 }

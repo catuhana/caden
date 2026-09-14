@@ -9,7 +9,14 @@
             loader = {
               systemd-boot = {
                 enable = lib.mkDefault true;
+
+                bootCounting.enable = true;
+
+                configurationLimit = 12;
                 editor = false;
+
+                # May be needed?
+                # xbootldrMountPoint = null;
               };
 
               efi.canTouchEfiVariables = true;

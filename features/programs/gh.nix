@@ -2,7 +2,9 @@ _: {
   caden.programs = {
     gh = {
       homeManager = _: {
-        programs.gh.enable = true;
+        programs.gh = {
+          enable = true;
+        };
       };
     };
   };

@@ -37,6 +37,7 @@
         gnome.excludePackages = [
           pkgs.gnome-disk-utility
           pkgs.gnome-tour
+          pkgs.gnome-system-monitor
           pkgs.seahorse
         ];
       };
