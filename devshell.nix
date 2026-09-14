@@ -1,7 +1,9 @@
 { pkgs }:
-pkgs.mkShellNoCC {
-  packages = [
-    pkgs.nixd
-    pkgs.nixfmt
-  ];
+{
+  default = pkgs.mkShellNoCC {
+    packages = [
+      pkgs.nixd
+      pkgs.nixfmt
+    ];
+  };
 }

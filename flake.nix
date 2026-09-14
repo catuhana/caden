@@ -54,7 +54,7 @@
       perSystem =
         { pkgs, ... }:
         {
-          devShells.default = import ./devshell.nix { inherit pkgs; };
+          devShells = import ./devshell.nix { inherit pkgs; };
           formatter = import ./formatter.nix { inherit pkgs; };
         };
     };

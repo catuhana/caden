@@ -10,18 +10,6 @@
           systemd-boot.xbootldrMountPoint = "/boot";
         };
 
-        virtualisation.vmVariantWithDisko.virtualisation = {
-          cores = 16;
-
-          memorySize = 8 * 1024;
-
-          qemu.options = [
-            "-device virtio-vga-gl"
-            "-display gtk,gl=on,show-cursor=on"
-            "-cpu host"
-          ];
-        };
-
         disko.devices = {
           disk = {
             main = {
