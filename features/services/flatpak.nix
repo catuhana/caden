@@ -1,4 +1,4 @@
-{ inputs, ... }:
+_:
 {
   caden.services = {
     flatpak = {
@@ -15,21 +15,6 @@
             config.common.default = [ "gtk" ];
           };
         };
-
-      homeManager = _: {
-        imports = [ inputs.nix-flatpak.homeManagerModules.nix-flatpak ];
-
-        services.flatpak = {
-          enable = true;
-
-          remotes = [
-            {
-              name = "flathub";
-              location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
-            }
-          ];
-        };
-      };
     };
   };
 }
