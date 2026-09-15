@@ -2,7 +2,7 @@
 {
   den.aspects = {
     MateBookD14 = {
-      nixos = { pkgs, ...}: {
+      nixos = _: {
         imports = [ inputs.disko.nixosModules.default ];
 
         boot.loader = {
