@@ -5,7 +5,7 @@ _: {
         services.scx-loader = {
           enable = true;
 
-          default_sched = "scx_bpfland";
+          config.default_sched = "scx_bpfland";
         };
       };
     };
