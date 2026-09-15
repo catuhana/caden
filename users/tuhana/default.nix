@@ -27,6 +27,8 @@
         caden.programs.steam
         caden.programs.vscode
 
+        caden.tuhana.identity
+        caden.tuhana.git
         caden.tuhana.gnome
 
         # (den.lib.policy.when ({ host, ... }: (host.desktop or null) != null) (
@@ -39,41 +41,6 @@
         #   _: den.lib.policy.include caden.tuhana.gnome
         # ))
       ];
-
-      user = _: {
-        description = "Tuhana GAYRETLİ";
-
-        initialPassword = "meow";
-
-        openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRxlolhp8bTNWcjkPz/Ib3jeru3r3URp3QGAY/meoww"
-          "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKYu6luGMLWJ66nJxf/UrS18bHs2ru9rOzVaOKk+7THCdacTcq8IrEuvF8L0snXiCc9OtxvkUr05sN448cub2sw="
-        ];
-      };
-
-      homeManager = _: {
-        programs.git = {
-          settings = {
-            init.defaultBranch = "main";
-
-            user = {
-              name = "tuhana";
-              email = "tuhana.cat+git@gmail.com";
-            };
-
-            gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-          };
-
-          signing = {
-            signByDefault = true;
-
-            format = "ssh";
-            key = "~/.ssh/id_ed25519.pub";
-          };
-        };
-
-        home.stateVersion = "26.11";
-      };
     };
   };
 }
