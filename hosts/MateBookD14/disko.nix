@@ -10,20 +10,6 @@
           systemd-boot.xbootldrMountPoint = "/boot";
         };
 
-        virtualisation.vmVariantWithDisko = {
-          disko.devices.disk.main.imageSize = "32G";
-
-          virtualisation = {
-            cores = 4;
-            memorySize = 8 * 1024;
-            useNixStoreImage = true;
-
-            qemu.options = [
-              "-cpu host"
-            ];
-          };
-        };
-
         disko.devices = {
           disk = {
             main = {
