@@ -13,6 +13,7 @@
       includes = [
         den.batteries.define-user
         den.batteries.hostname
+        den.batteries.inputs'
       ];
 
       os = _: {
@@ -36,28 +37,26 @@
             package = pkgs.lixPackageSets.latest.lix;
 
             settings = {
-              auto-allocate-uids = true;
-              auto-optimise-store = true;
-
-              extra-substituters = [
-                "https://nix-community.cachix.org"
-              ];
-
-              extra-trusted-public-keys = [
-                "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-              ];
-
-              keep-going = true;
-
-              trusted-users = [ "@wheel" ];
-
-              use-cgroups = true;
-
               experimental-features = [
                 "nix-command"
                 "flakes"
                 "cgroups"
                 "auto-allocate-uids"
+              ];
+
+              auto-allocate-uids = true;
+              auto-optimise-store = true;
+
+              keep-going = true;
+              use-cgroups = true;
+
+              trusted-users = [ "@wheel" ];
+
+              extra-substituters = [
+                "https://nix-community.cachix.org"
+              ];
+              extra-trusted-public-keys = [
+                "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
               ];
             };
           };
