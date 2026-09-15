@@ -6,6 +6,7 @@
       default = null;
     };
   };
+
   config = {
     services.scx = {
       enable = true;

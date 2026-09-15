@@ -29,11 +29,17 @@
 
   outputs =
     {
-      self,
       nixpkgs,
-      flake-parts,
+
       systems,
+      flake-parts,
+
+      disko,
+      lanzaboote,
+      home-manager,
+
       treefmt-nix,
+
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -46,8 +52,12 @@
       flake = {
         nixosConfigurations.MateBookD14 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+
           modules = [
+            disko.nixosModules.default
+            lanzaboote.nixosModules.lanzaboote
+            home-manager.nixosModules.home-manager
+
             ./features/core/common.nix
             ./hosts/MateBookD14/host.nix
           ];

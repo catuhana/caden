@@ -1,7 +1,5 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
-  imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
-
   environment.systemPackages = [ pkgs.sbctl ];
 
   boot = {

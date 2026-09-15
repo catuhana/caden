@@ -1,6 +1,4 @@
-{ pkgs, inputs, ... }: {
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
-
+{ pkgs, ... }: {
   users.users.tuhana = {
     isNormalUser = true;
     description = "Tuhana GAYRETLİ";

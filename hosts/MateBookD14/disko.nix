@@ -1,7 +1,5 @@
-{ inputs, ... }:
+{ ... }:
 {
-  imports = [ inputs.disko.nixosModules.default ];
-
   boot.loader = {
     efi.efiSysMountPoint = "/efi";
     systemd-boot.xbootldrMountPoint = "/boot";

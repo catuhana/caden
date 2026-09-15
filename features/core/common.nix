@@ -1,10 +1,9 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   nixpkgs.config.allowUnfree = true;
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
   };
 
   nix = {
