@@ -1,4 +1,4 @@
-# CLAUDE.md
+# AGENTS.md
 
 > [!IMPORTANT]
 > **Do only what I ask and nothing more**. Do not add any extra code, comments, or anything
@@ -22,8 +22,7 @@ In every commit you make, instead of using `Co-Authored-By`, you MUST use a conv
 the [kernel convention](https://docs.kernel.org/process/coding-assistants.html#attribution):
 
 ```text
-Assisted-by: AGENT_NAME:MODEL_VERSION
+Assisted-by: LLM_MODEL
 ```
 
-- Replace `AGENT_NAME` with the used AI tool or framework, e.g. "Claude Code", "opencode".
-- Replace `MODEL_VERSION` with the actual model in use, e.g. `claude-opus-4.8`, `deepseek-v4-flash`, `gemini-3.5-flash`.
+- Replace `LLM_MODEL` with the actual model in use, e.g. `Gemini 3.8 Flash`, `Muse Spark 1.3`, `Claude Opus 5`.
