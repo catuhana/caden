@@ -30,16 +30,6 @@
         caden.tuhana.identity
         caden.tuhana.git
         caden.tuhana.gnome
-
-        # (den.lib.policy.when ({ host, ... }: (host.desktop or null) != null) (
-        #   _: den.lib.policy.include caden.tuhana.graphical
-        # ))
-
-        # # `host.desktop` is sadly a workaround...
-        # # can't have this in `caden.tuhana.graphical` for some reason...
-        # (den.lib.policy.when ({ host, ... }: (host.desktop or null) == "gnome") (
-        #   _: den.lib.policy.include caden.tuhana.gnome
-        # ))
       ];
     };
   };

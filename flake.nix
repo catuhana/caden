@@ -32,8 +32,6 @@
 
   outputs =
     {
-      nixpkgs,
-
       systems,
       flake-parts,
 
