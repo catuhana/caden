@@ -1,11 +1,5 @@
 _: {
-  caden.core = {
-    kmscon = {
-      nixos = _: {
-        services.kmscon = {
-          enable = true;
-        };
-      };
-    };
+  services.kmscon = {
+    enable = true;
   };
 }

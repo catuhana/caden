@@ -1,29 +1,22 @@
-{ caden, ... }: {
-  caden.programs = {
+{ pkgs, ... }:
+{
+  imports = [ ./gamemode.nix ];
+
+  boot.kernelModules = [ "ntsync" ];
+
+  programs = {
     steam = {
-      includes = [ caden.programs.gamemode ];
+      enable = true;
+      gamescopeSession.enable = true;
 
-      nixos =
-        { pkgs, ... }:
-        {
-          boot.kernelModules = [ "ntsync" ];
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      extraPackages = [
+        pkgs.mangohud
+        pkgs.gamemode
+      ];
 
-          programs = {
-            steam = {
-              enable = true;
-              gamescopeSession.enable = true;
-
-              extraCompatPackages = [ pkgs.proton-ge-bin ];
-              extraPackages = [
-                pkgs.mangohud
-                pkgs.gamemode
-              ];
-
-              remotePlay.openFirewall = true;
-              dedicatedServer.openFirewall = true;
-            };
-          };
-        };
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
     };
   };
 }

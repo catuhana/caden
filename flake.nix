@@ -10,9 +10,6 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    import-tree.url = "github:denful/import-tree";
-    den.url = "github:denful/den";
-
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,11 +29,10 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       flake-parts,
       systems,
-      import-tree,
-      den,
       treefmt-nix,
       ...
     }@inputs:
@@ -44,17 +40,19 @@
       systems = import systems;
 
       imports = [
-        den.flakeModule
         treefmt-nix.flakeModule
-
-        ./den.nix
-
-        (import-tree [
-          ./features
-          ./hosts
-          ./users
-        ])
       ];
+
+      flake = {
+        nixosConfigurations.MateBookD14 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./features/core/common.nix
+            ./hosts/MateBookD14/host.nix
+          ];
+        };
+      };
 
       perSystem =
         { pkgs, ... }:

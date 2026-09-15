@@ -1,5 +1,5 @@
 _: {
-  system.nixos-init = {
+  security.tpm2 = {
     enable = true;
   };
 }
