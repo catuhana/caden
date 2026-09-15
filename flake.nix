@@ -33,10 +33,13 @@
   outputs =
     {
       nixpkgs,
-      flake-parts,
+
       systems,
+      flake-parts,
+
       import-tree,
       den,
+
       treefmt-nix,
       ...
     }@inputs:

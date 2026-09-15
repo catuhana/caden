@@ -6,7 +6,9 @@
 {
   den.hosts = {
     x86_64-linux = {
-      MateBookD14 = { };
+      MateBookD14 = {
+        users.tuhana.classes = [ "homeManager" ];
+      };
     };
   };
 
