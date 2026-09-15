@@ -29,6 +29,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
 
       systems,
@@ -42,6 +43,17 @@
 
       ...
     }@inputs:
+    let
+      cadenLib = import ./lib {
+        inherit
+          self
+          nixpkgs
+          disko
+          lanzaboote
+          home-manager
+          ;
+      };
+    in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import systems;
 
@@ -50,17 +62,9 @@
       ];
 
       flake = {
-        nixosConfigurations.MateBookD14 = nixpkgs.lib.nixosSystem {
+        nixosConfigurations = cadenLib.mkHost {
+          hostname = "MateBookD14";
           system = "x86_64-linux";
-
-          modules = [
-            disko.nixosModules.default
-            lanzaboote.nixosModules.lanzaboote
-            home-manager.nixosModules.home-manager
-
-            ./features/core/common.nix
-            ./hosts/MateBookD14/host.nix
-          ];
         };
       };
 
