@@ -6,10 +6,6 @@
   den.hosts = {
     x86_64-linux = {
       MateBookD14 = {
-        desktop = "gnome";
-
-        scx.scheduler = "scx_bpfland";
-
         users.tuhana = { };
       };
     };
@@ -24,7 +20,6 @@
         caden.core.boot.plymouth
 
         caden.core.nixos-init
-        caden.core.etc-overlay
 
         caden.core.networking
         caden.core.networking.mdns
@@ -32,8 +27,6 @@
         caden.core.security.tpm2
 
         caden.desktops.gnome
-
-        caden.programs.gamemode
 
         caden.services.scx
         caden.services.userborn

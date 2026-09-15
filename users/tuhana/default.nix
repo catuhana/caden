@@ -23,7 +23,10 @@
         caden.programs.git
         caden.programs.msedit
 
-        caden.tuhana.graphical
+        caden.programs.chrome-dev
+        caden.programs.steam
+        caden.programs.vscode
+
         caden.tuhana.gnome
 
         # (den.lib.policy.when ({ host, ... }: (host.desktop or null) != null) (
