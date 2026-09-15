@@ -26,6 +26,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs =
@@ -35,6 +37,7 @@
       systems,
       import-tree,
       den,
+      treefmt-nix,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -42,6 +45,8 @@
 
       imports = [
         den.flakeModule
+        treefmt-nix.flakeModule
+
         ./den.nix
 
         (import-tree [
@@ -61,11 +66,8 @@
               nixfmt
               ;
           };
-          formatter = import ./formatter.nix {
-            inherit (pkgs)
-              nixfmt-tree
-              ;
-          };
+
+          treefmt = import ./formatter.nix { };
         };
     };
 }

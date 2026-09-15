@@ -1,2 +1,13 @@
-{ nixfmt-tree, ... }:
-nixfmt-tree
+_: {
+  programs = {
+    nixfmt.enable = true;
+
+    prettier = {
+      enable = true;
+      includes = [
+        "*.md"
+        "*.json"
+      ];
+    };
+  };
+}
