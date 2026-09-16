@@ -44,7 +44,6 @@
                 pkiBundle = "/var/lib/sbctl";
 
                 autoGenerateKeys.enable = true;
-
                 autoEnrollKeys.enable = true;
               };
             };
@@ -69,7 +68,9 @@
 
       plymouth = {
         nixos = _: {
-          boot.plymouth.enable = true;
+          boot.plymouth = {
+            enable = true;
+          };
         };
       };
     };

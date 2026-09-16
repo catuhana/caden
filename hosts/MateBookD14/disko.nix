@@ -90,19 +90,24 @@
                         extraArgs = [ "-f" ];
 
                         subvolumes = {
-                          "@" = {
+                          "@/" = {
                             mountpoint = "/";
-                            mountOptions = [ "compress=zstd" ];
+                            mountOptions = [ "compress=zstd:3" ];
                           };
 
-                          "@home" = {
+                          "@/home" = {
                             mountpoint = "/home";
-                            mountOptions = [ "compress=zstd" ];
+                            mountOptions = [ "compress=zstd:1" ];
                           };
 
-                          "@nix" = {
+                          "@/nix" = {
                             mountpoint = "/nix";
-                            mountOptions = [ "compress=zstd" ];
+                            mountOptions = [ "compress=zstd:6" ];
+                          };
+
+                          "@/var/log" = {
+                            mountpoint = "/var/log";
+                            mountOptions = [ "compress=zstd:9" ];
                           };
                         };
                       };
