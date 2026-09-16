@@ -32,6 +32,10 @@
         caden.services.userborn
         caden.services.usbmuxd
 
+        caden.services.bluetooth
+        caden.services.openssh
+        caden.services.thermald
+
         caden.MateBookD14.quirks.power-limits
       ];
 
