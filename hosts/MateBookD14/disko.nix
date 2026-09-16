@@ -81,7 +81,6 @@
 
                         crypttabExtraOpts = [
                           "tpm2-device=auto"
-                          "tpm2-with-pin=yes"
                         ];
                       };
 
