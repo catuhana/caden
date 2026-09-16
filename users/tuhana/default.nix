@@ -26,6 +26,7 @@
         caden.programs.chrome-dev
         caden.programs.steam
         caden.programs.vscode
+        caden.programs.zed-editor
 
         caden.tuhana.git
         caden.tuhana.gnome
