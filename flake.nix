@@ -18,8 +18,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
-      # https://github.com/nix-community/lanzaboote/pull/456 - XBOOTLDR support.
-      url = "github:nix-community/lanzaboote/8582371c391b345b158d08942ef459f4251e1c01";
+      # https://github.com/nix-community/lanzaboote/pull/456
+      # rebased to main on a local fork.
+      url = "github:catuhana/lanzaboote?ref=xbootldr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
