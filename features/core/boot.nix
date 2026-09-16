@@ -14,9 +14,6 @@
 
                 configurationLimit = 12;
                 editor = false;
-
-                # May be needed?
-                # xbootldrMountPoint = null;
               };
 
               efi.canTouchEfiVariables = true;
