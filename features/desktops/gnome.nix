@@ -14,6 +14,7 @@
 
           gnome-browser-connector.enable = false;
           gnome-initial-setup.enable = false;
+          gnome-software.enable = true;
         };
       };
 
