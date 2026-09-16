@@ -27,9 +27,9 @@
         caden.programs.steam
         caden.programs.vscode
 
-        caden.tuhana.identity
         caden.tuhana.git
         caden.tuhana.gnome
+        caden.tuhana.identity
       ];
     };
   };

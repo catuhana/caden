@@ -28,13 +28,13 @@
 
         caden.desktops.gnome
 
-        caden.services.scx
-        caden.services.userborn
-        caden.services.usbmuxd
-
         caden.services.bluetooth
+        caden.services.flatpak
         caden.services.openssh
+        caden.services.scx
         caden.services.thermald
+        caden.services.usbmuxd
+        caden.services.userborn
 
         caden.MateBookD14.quirks.power-limits
       ];
