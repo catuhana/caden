@@ -24,6 +24,9 @@
         ];
 
         gnome.excludePackages = [
+          pkgs.epiphany
+          pkgs.gnome-contacts
+          pkgs.gnome-music
           pkgs.gnome-system-monitor
           pkgs.gnome-terminal
           pkgs.gnome-tour
