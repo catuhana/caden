@@ -1,6 +1,6 @@
 _: {
   caden.programs = {
-    chrome-dev = {
+    chrome = {
       homeManager = { pkgs, ... }: {
         home.packages = [
           pkgs.google-chrome

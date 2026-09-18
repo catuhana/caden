@@ -23,7 +23,7 @@
         caden.programs.git
         caden.programs.msedit
 
-        caden.programs.chrome-dev
+        caden.programs.chrome
         caden.programs.steam
         caden.programs.vscode
         caden.programs.zed-editor
