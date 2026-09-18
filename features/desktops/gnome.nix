@@ -28,7 +28,7 @@
           pkgs.gnome-contacts
           pkgs.gnome-music
           pkgs.gnome-system-monitor
-          pkgs.gnome-terminal
+          pkgs.gnome-console
           pkgs.gnome-tour
           pkgs.yelp
         ];

@@ -36,7 +36,7 @@
         caden.services.usbmuxd
         caden.services.userborn
 
-        caden.MateBookD14.quirks.power-limits
+        #caden.MateBookD14.quirks.power-limits
       ];
 
       nixos = _: {
